@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="E:/Temporary_R.FoodR.db" readonly="0" foreign_keys="" case_sensitive_like="" temp_store="" wal_autocheckpoint="" synchronous=""/><attached/><window><main_tabs open="browser structure pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="1966"/><column_width id="4" width="0"/></tab_structure><tab_browse><current_table name="0,0:"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE Chuc_Vu(
+	MaCV TEXT UNIQUE PRIMARY KEY,
+	TenCV TEXT
+);
+
+CREATE TABLE Nhan_Vien(
+	ID TEXT UNIQUE PRIMARY KEY,
+	MaCV TEXT,
+	HoTen TEXT,
+	GioiTinh TEXT,
+	CMND TEXT,
+	SDT TEXT,
+	DiaChi TEXT,
+	Luong REAL,
+	FOREIGN KEY (MaCV) REFERENCES Chuc_Vu (MaCV)
+);
+
+CREATE TABLE Danh_Muc(
+	MaDM TEXT UNIQUE PRIMARY KEY,
+	TenDM TEXT
+);
+
+CREATE TABLE Mon_An(
+	MaDM TEXT,
+	MaMon TEXT UNIQUE PRIMARY KEY,
+	TenMon TEXT,
+	GiaMon REAL,
+	FOREIGN KEY (MaDM) REFERENCES Danh_Muc (MaDM)
+);
+
+CREATE TABLE Ban_An(
+	MaBan TEXT UNIQUE PRIMARY KEY,
+	TenBan TEXT
+);
+
+CREATE TABLE Don_Dat(
+	MaDonDat TEXT UNIQUE PRIMARY KEY,
+	MaBan TEXT,
+	MaMon TEXT,
+	SoLuongMon REAL,
+	ThoiGian TEXT,
+	TongGia REAL,
+	FOREIGN KEY (MaBan) REFERENCES Ban_An (MaBan),
+	FOREIGN KEY (MaMon) REFERENCES Mon_An (MaMon)
+);
+
+CREATE TABLE Hoa_Don (
+	MaHoaDon TEXT UNIQUE PRIMARY KEY,
+	MaDonDat TEXT,
+	ThoiGian TEXT,
+	ThanhTien REAL,
+	FOREIGN KEY (MaDonDat) REFERENCES Don_Dat (MaDonDat)
+);</sql><current_tab id="0"/></tab_sql></sqlb_project>
