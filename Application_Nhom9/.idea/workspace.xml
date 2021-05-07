@@ -55,16 +55,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RestaurantFoodReservationApplication" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
+      <method v="2" />
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="RestaurantFoodReservationApplication.app" />
@@ -119,9 +117,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
+      <method v="2" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -147,16 +143,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="269" y="121" key="AndroidCreateResourceFileDialog" timestamp="1619880945778">
       <screen x="0" y="0" width="1376" height="733" />
     </state>
     <state x="269" y="121" key="AndroidCreateResourceFileDialog/0.0.1376.733@0.0.1376.733" timestamp="1619880945778" />
-    <state x="469" y="121" key="FileChooserDialogImpl" timestamp="1619959102252">
+    <state x="469" y="121" key="FileChooserDialogImpl" timestamp="1620304052104">
       <screen x="0" y="0" width="1376" height="733" />
     </state>
-    <state x="469" y="121" key="FileChooserDialogImpl/0.0.1376.733@0.0.1376.733" timestamp="1619959102252" />
+    <state x="469" y="121" key="FileChooserDialogImpl/0.0.1376.733@0.0.1376.733" timestamp="1620304052104" />
     <state x="351" y="69" key="NewModule_or_Project.wizard" timestamp="1619959106272">
       <screen x="0" y="0" width="1376" height="733" />
     </state>

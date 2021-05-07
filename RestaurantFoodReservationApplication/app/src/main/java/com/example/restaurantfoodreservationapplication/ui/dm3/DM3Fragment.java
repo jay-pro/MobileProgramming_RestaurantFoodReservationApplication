@@ -1,4 +1,4 @@
-package com.example.restaurantfoodreservationapplication.ui.slideshow;
+package com.example.restaurantfoodreservationapplication.ui.dm3;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,15 +14,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.restaurantfoodreservationapplication.R;
 
-public class SlideshowFragment extends Fragment {
+public class DM3Fragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private DM3ViewModel slideshowViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+                new ViewModelProvider(this).get(DM3ViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_dm3, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

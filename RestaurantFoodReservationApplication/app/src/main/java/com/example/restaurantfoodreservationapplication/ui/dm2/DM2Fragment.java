@@ -1,4 +1,4 @@
-package com.example.restaurantfoodreservationapplication.ui.gallery;
+package com.example.restaurantfoodreservationapplication.ui.dm2;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.restaurantfoodreservationapplication.R;
 
-public class GalleryFragment extends Fragment {
+public class DM2Fragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private DM2ViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        homeViewModel =
+                new ViewModelProvider(this).get(DM2ViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_dm2, container, false);
+        final TextView textView = root.findViewById(R.id.text_home);
+        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

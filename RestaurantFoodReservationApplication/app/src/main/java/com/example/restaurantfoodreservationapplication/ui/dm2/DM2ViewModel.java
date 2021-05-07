@@ -1,14 +1,14 @@
-package com.example.restaurantfoodreservationapplication.ui.home;
+package com.example.restaurantfoodreservationapplication.ui.dm2;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class DM2ViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public DM2ViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is home fragment");
     }
