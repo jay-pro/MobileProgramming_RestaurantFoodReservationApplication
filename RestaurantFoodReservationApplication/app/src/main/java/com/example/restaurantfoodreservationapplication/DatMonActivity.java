@@ -3,13 +3,16 @@ package com.example.restaurantfoodreservationapplication;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.example.restaurantfoodreservationapplication.Class.Ban_An;
+import com.example.restaurantfoodreservationapplication.Class.Chuc_Vu;
+import com.example.restaurantfoodreservationapplication.Class.Danh_Muc;
+import com.example.restaurantfoodreservationapplication.Class.Mon_An;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -26,10 +29,34 @@ public class DatMonActivity extends AppCompatActivity {
     ImageView imgView;*/
     private AppBarConfiguration mAppBarConfiguration;
 
+    DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datmon);
+
+        /*
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+
+        myRef.setValue("Hello, World!");
+
+         */
+
+        //Node lớn
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        //Node nhỏ
+        Ban_An ban_an = new Ban_An("B3-001","Ban Don 2");
+        Danh_Muc chucvu = new Danh_Muc("CB","Combo");
+        Mon_An chucvu2 = new Mon_An("CB","CB001","BTSMeal",150000);
+
+        mDatabase.child("DanhMuc").push().setValue(chucvu);
+        mDatabase.child("MonAn").push().setValue(chucvu2);
+
+
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
