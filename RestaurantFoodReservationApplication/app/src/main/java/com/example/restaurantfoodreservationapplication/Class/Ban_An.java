@@ -1,4 +1,4 @@
-package com.example.restaurantfoodreservationapplication;
+package com.example.restaurantfoodreservationapplication.Class;
 
 public class Ban_An {
     public String MaBan;

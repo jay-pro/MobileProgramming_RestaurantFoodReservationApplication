@@ -3,10 +3,11 @@ package com.example.restaurantfoodreservationapplication;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.example.restaurantfoodreservationapplication.Class.Ban_An;
+import com.example.restaurantfoodreservationapplication.Class.Chuc_Vu;
+import com.example.restaurantfoodreservationapplication.Class.Danh_Muc;
+import com.example.restaurantfoodreservationapplication.Class.Mon_An;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -46,9 +47,13 @@ public class DatMonActivity extends AppCompatActivity {
         //Node lớn
         mDatabase = FirebaseDatabase.getInstance().getReference();
         //Node nhỏ
-        Ban_An ban_an = new Ban_An("B2-001","Ban Don 2");
+        Ban_An ban_an = new Ban_An("B3-001","Ban Don 2");
+        Danh_Muc chucvu = new Danh_Muc("CB","Combo");
+        Mon_An chucvu2 = new Mon_An("CB","CB001","BTSMeal",150000);
 
-        mDatabase.child("BanAn").push().setValue("ban_an");
+        mDatabase.child("DanhMuc").push().setValue(chucvu);
+        mDatabase.child("MonAn").push().setValue(chucvu2);
+
 
 
 
