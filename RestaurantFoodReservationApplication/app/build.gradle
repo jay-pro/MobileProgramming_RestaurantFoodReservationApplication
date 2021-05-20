@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.restaurantfoodreservationapplication"
-        minSdkVersion 16
+        minSdkVersion 21//16 at first
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -40,10 +40,16 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
     //thêm:
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
+
+    //thêm 20/5/2021:
+    implementation 'br.com.simplepass:loading-button-android:1.14.0'
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'com.google.android.material:material:1.0.0'
 }
 
 //thêm:

@@ -47,12 +47,10 @@ public class DatMonActivity extends AppCompatActivity {
         //Node lớn
         mDatabase = FirebaseDatabase.getInstance().getReference();
         //Node nhỏ
-        Ban_An ban_an = new Ban_An("B3-001","Ban Don 2");
-        Danh_Muc chucvu = new Danh_Muc("CB","Combo");
-        Mon_An chucvu2 = new Mon_An("CB","CB001","BTSMeal",150000);
+        Danh_Muc danhmuc10 = new Danh_Muc("GR","Gà rán");
 
-        mDatabase.child("DanhMuc").push().setValue(chucvu);
-        mDatabase.child("MonAn").push().setValue(chucvu2);
+        mDatabase.child("DanhMuc").push().setValue(danhmuc10);
+
 
 
 
