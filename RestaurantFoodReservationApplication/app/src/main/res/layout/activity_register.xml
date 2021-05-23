@@ -13,7 +13,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:id="@+id/scrollview_register">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -127,7 +128,8 @@
                         app:initialCornerAngle="27dp"
                         app:spinning_bar_color="#FFF"
                         app:spinning_bar_padding="6dp"
-                        app:spinning_bar_width="4dp"/>
+                        app:spinning_bar_width="4dp"
+                        android:onClick="onRegisterClick"/>
 
                     <TextView
                         style="@style/parent"
