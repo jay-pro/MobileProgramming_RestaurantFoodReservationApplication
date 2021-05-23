@@ -89,7 +89,7 @@
                 app:spinning_bar_width="4dp"/>
 
             <TextView
-                android:id="@+id/regis"
+                android:id="@+id/register_navigate"
                 style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:onClick="onLoginClick"

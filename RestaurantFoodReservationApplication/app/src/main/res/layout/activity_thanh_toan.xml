@@ -54,6 +54,7 @@
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/textViewTenMon" />
 
+        <!--
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
@@ -73,6 +74,7 @@
             tools:layout_editor_absoluteX="341dp"
             tools:layout_editor_absoluteY="595dp" />
         /*SAU NÀY Ở ĐÂY LÀ NÚT THOÁT*/
+        -->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
