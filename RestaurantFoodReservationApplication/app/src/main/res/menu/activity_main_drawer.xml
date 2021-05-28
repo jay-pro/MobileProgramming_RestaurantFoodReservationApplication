@@ -16,5 +16,15 @@
             android:id="@+id/nav_dm3"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+
+        <item
+            android:id="@+id/nav_quanly_mon"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Dishes MANAGE"/>
+        <item
+            android:id="@+id/nav_quanly_nhanvien"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Employees MANAGE"/>
+
     </group>
 </menu>

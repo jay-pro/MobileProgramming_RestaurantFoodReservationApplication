@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Login Succeeded.", Toast.LENGTH_LONG).show();
                     //hide the progress bar if log in is successful
                     //intent to DatMonActivity
-                    Intent intent = new Intent(LoginActivity.this, DatMonActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, DatMonActivity.class);//kiểm tra chức vụ, nếu là quản lý thì hiện lên những chức năng của quản lý
                     startActivity(intent);
                 }
                 else{

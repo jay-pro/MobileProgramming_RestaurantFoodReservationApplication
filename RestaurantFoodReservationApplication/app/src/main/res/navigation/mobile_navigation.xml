@@ -22,4 +22,17 @@
         android:name="com.example.restaurantfoodreservationapplication.ui.dm3.DM3Fragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_dm3" />
+
+    <fragment
+        android:id="@+id/nav_quanly_mon"
+        android:name="com.example.restaurantfoodreservationapplication.ui.quanly_mon.QUANLY_MONFragment"
+        android:label="Dishes MANAGE"
+        tools:layout="@layout/fragment_quanly_mon" />
+
+    <fragment
+        android:id="@+id/nav_quanly_nhanvien"
+        android:name="com.example.restaurantfoodreservationapplication.ui.quanly_nhanvien.QUANLY_NHANVIENFragment"
+        android:label="Employees MANAGE"
+        tools:layout="@layout/fragment_quanly_nhanvien" />
+
 </navigation>
