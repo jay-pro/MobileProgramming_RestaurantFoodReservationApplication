@@ -1,8 +1,10 @@
 package com.example.restaurantfoodreservationapplication;
 
+import android.app.UiAutomation;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 
 import com.example.restaurantfoodreservationapplication.Class.Ban_An;
 import com.example.restaurantfoodreservationapplication.Class.Chuc_Vu;
@@ -24,6 +26,7 @@ import androidx.appcompat.widget.Toolbar;
 
 public class DatMonActivity extends AppCompatActivity {
 
+    Button btnXemDonDat;
   /*  TextView tenmon, giamon;
     Button btnDatMon;
     ImageView imgView;*/
@@ -35,6 +38,15 @@ public class DatMonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datmon);
+        btnXemDonDat = (Button) findViewById(R.id.btnDonHang);
+        btnXemDonDat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
 
         /*
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -47,9 +59,18 @@ public class DatMonActivity extends AppCompatActivity {
         //Node lớn
         mDatabase = FirebaseDatabase.getInstance().getReference();
         //Node nhỏ
-        Danh_Muc danhmuc10 = new Danh_Muc("GR","Gà rán");
 
-        mDatabase.child("DanhMuc").push().setValue(danhmuc10);
+      //  Danh_Muc danhmuc10 = new Danh_Muc("GR","Gà rán");
+
+      //  mDatabase.child("DanhMuc").push().setValue(danhmuc10);
+
+
+        /*Ban_An ban_an = new Ban_An("B3-001","Ban Don 2");
+        Danh_Muc chucvu = new Danh_Muc("CB","Combo");
+        Mon_An chucvu2 = new Mon_An("CB","CB001","BTSMeal",150000);
+
+        mDatabase.child("DanhMuc").push().setValue(chucvu);
+        mDatabase.child("MonAn").push().setValue(chucvu2);*/
 
 
 
