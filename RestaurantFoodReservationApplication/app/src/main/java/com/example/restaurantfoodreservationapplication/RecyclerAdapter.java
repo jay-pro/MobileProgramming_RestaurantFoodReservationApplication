@@ -4,19 +4,15 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantfoodreservationapplication.Class.Chi_Tiet_Don_Dat;
-import com.example.restaurantfoodreservationapplication.Class.Don_Dat;
 import com.example.restaurantfoodreservationapplication.Class.Mon_An;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.DataViewHolder>{
@@ -24,7 +20,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.DataVi
     private Context context;
     public static  List<Chi_Tiet_Don_Dat> dsMonDaDat;
 
-    public static int ViTri = -1;
+    public static int SoLuong;//uong
     public static Chi_Tiet_Don_Dat dondat;
 
     private OnItemClickListener Listener;

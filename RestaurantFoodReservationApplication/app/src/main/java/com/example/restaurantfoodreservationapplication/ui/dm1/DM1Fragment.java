@@ -4,16 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,6 +25,10 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import static com.example.restaurantfoodreservationapplication.DatMonActivity.MaBan;
+import static com.example.restaurantfoodreservationapplication.RecyclerDonDatAdapter.soluong;
 
 public class DM1Fragment extends Fragment {
     ListView MonAn;
@@ -46,7 +46,7 @@ public class DM1Fragment extends Fragment {
                 //new ViewModelProvider(this).get(DM1ViewModel.class);
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         mDatabase = db.child("MonAn");
-        Query query =  mDatabase.orderByChild("MaDM").equalTo("DR");
+        Query query =  mDatabase.orderByChild("MaDM").equalTo("DA");
         View root = inflater.inflate(R.layout.recycleview, container, false);
 
         final TextView textView = root.findViewById(R.id.text_home); ////moiws theem
@@ -94,11 +94,51 @@ public class DM1Fragment extends Fragment {
 
             }
         });
+
         recyclerAdapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
+            int i;
             @Override
             public void onItemClick(int position) {
-                Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(1+"", dsMon.get(position).getTenMon(), dsMon.get(position).getGiaMon(), 1);
-                db.child("DonDat").push().setValue(don); //bij looi out ctrinh
+                i = 1;
+               // Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan,1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
+                db.child("DonDat").child("DonDat"+MaBan).orderByChild("tenMon").equalTo(dsMon.get(position).getTenMon()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()==true) {
+                                //snapshot bang NULL nen phia duoi du lieu bi sai
+                                for(DataSnapshot ds : snapshot.getChildren()) {
+                                    Chi_Tiet_Don_Dat don = ds.getValue(Chi_Tiet_Don_Dat.class);
+
+
+                                    // Chi_Tiet_Don_Dat don = snapshot.getChildren().iterator().next().getValue(Chi_Tiet_Don_Dat.class);
+                                    // Chi_Tiet_Don_Dat don = snapshot.getValue(Chi_Tiet_Don_Dat.class);
+                                   // Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
+
+                                    int soluong = don.getSoLuong() + 1;
+                                    don.setSoLuong(soluong);
+                                    // ctdondat.setTenMon(dsMonDat.get(position).getTenMon());
+                                    //ctdondat.setSoLuong(soluong);
+                                    String key = ds.getKey();
+                                    HashMap childUpdates = new HashMap();
+                                    childUpdates.put(key, don);
+                                    if (i==1) {
+                                        db.child("DonDat").child("DonDat" + MaBan).updateChildren(childUpdates);
+                                        recyclerAdapter.notifyDataSetChanged();
+                                    }
+                                    i = i+1;
+                                }
+                            }
+                            else {
+                                Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
+                                db.child("DonDat").child("DonDat" + MaBan).push().setValue(don);
+                            }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+               // db.child("DonDat").child("DonDat"+MaBan).push().setValue(don);
             }
         });
 

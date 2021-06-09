@@ -4,31 +4,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Button;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantfoodreservationapplication.Class.Chi_Tiet_Don_Dat;
 import com.example.restaurantfoodreservationapplication.Class.Mon_An;
 import com.example.restaurantfoodreservationapplication.R;
 import com.example.restaurantfoodreservationapplication.RecyclerAdapter;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,11 +26,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
-import static com.example.restaurantfoodreservationapplication.RecyclerAdapter.ViTri;
-
-import static com.example.restaurantfoodreservationapplication.RecyclerAdapter.dondat;
+import static com.example.restaurantfoodreservationapplication.DatMonActivity.MaBan;
 
 public class DM2Fragment extends Fragment {
 
@@ -61,7 +48,7 @@ public class DM2Fragment extends Fragment {
                 new ViewModelProvider(this).get(DM2ViewModel.class);*/
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         mDatabase = db.child("MonAn");
-        Query query =  mDatabase.orderByChild("MaDM").equalTo("DA");
+        Query query =  mDatabase.orderByChild("MaDM").equalTo("DR");
         View root = inflater.inflate(R.layout.recycleview, container, false);
         BtnDatMon = (Button) root.findViewById(R.id.btnDatMon);
         final TextView textView = root.findViewById(R.id.text_home); ////moiws theem
@@ -110,20 +97,51 @@ public class DM2Fragment extends Fragment {
 
             }
         });
-//        if(ViTri!=-1) { //khong hoat dong
-//            //Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat("1", dsMon.get(ViTri).getTenMon(), dsMon.get(ViTri).getGiaMon(), 4);
-//           // Mon_An chucvu2 = new Mon_An(15000, "CB014","Combo");
-//           // db.child("MonAn").push().setValue(chucvu2);
-//
-//            Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat("1", dsMon.get(ViTri).getTenMon(), dsMon.get(ViTri).getGiaMon(), 4);
-//            db.child("DonDat").push().setValue(don);
-//        }
         recyclerAdapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
-         @Override
-         public void onItemClick(int position) {
-             Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(1+"", dsMon.get(position).getTenMon(), dsMon.get(position).getGiaMon(), 1);
-             db.child("DonDat").push().setValue(don); //bij looi out ctrinh
-         }
+            int i;
+            @Override
+            public void onItemClick(int position) {
+                i = 1;
+                // Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan,1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
+                db.child("DonDat").child("DonDat"+MaBan).orderByChild("tenMon").equalTo(dsMon.get(position).getTenMon()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()==true) {
+                            //snapshot bang NULL nen phia duoi du lieu bi sai
+                            for(DataSnapshot ds : snapshot.getChildren()) {
+                                Chi_Tiet_Don_Dat don = ds.getValue(Chi_Tiet_Don_Dat.class);
+
+
+                                // Chi_Tiet_Don_Dat don = snapshot.getChildren().iterator().next().getValue(Chi_Tiet_Don_Dat.class);
+                                // Chi_Tiet_Don_Dat don = snapshot.getValue(Chi_Tiet_Don_Dat.class);
+                                // Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
+
+                                int soluong = don.getSoLuong() + 1;
+                                don.setSoLuong(soluong);
+                                // ctdondat.setTenMon(dsMonDat.get(position).getTenMon());
+                                //ctdondat.setSoLuong(soluong);
+                                String key = ds.getKey();
+                                HashMap childUpdates = new HashMap();
+                                childUpdates.put(key, don);
+                                if (i==1) {
+                                    db.child("DonDat").child("DonDat" + MaBan).updateChildren(childUpdates);
+                                    recyclerAdapter.notifyDataSetChanged();
+                                }
+                                i = i+1;
+                            }
+                        }
+                        else {
+                            Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
+                            db.child("DonDat").child("DonDat" + MaBan).push().setValue(don);
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                // db.child("DonDat").child("DonDat"+MaBan).push().setValue(don);
+            }
         });
 /*
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

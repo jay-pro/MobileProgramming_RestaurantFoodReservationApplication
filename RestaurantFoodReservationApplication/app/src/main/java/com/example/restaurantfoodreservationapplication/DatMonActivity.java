@@ -1,10 +1,13 @@
 package com.example.restaurantfoodreservationapplication;
 
 import android.app.UiAutomation;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.restaurantfoodreservationapplication.Class.Ban_An;
 import com.example.restaurantfoodreservationapplication.Class.Chuc_Vu;
@@ -27,9 +30,10 @@ import androidx.appcompat.widget.Toolbar;
 public class DatMonActivity extends AppCompatActivity {
 
     Button btnXemDonDat;
-  /*  TextView tenmon, giamon;
+    TextView soBan;
+    public static String MaBan;
     Button btnDatMon;
-    ImageView imgView;*/
+    ImageView imgView;
     private AppBarConfiguration mAppBarConfiguration;
 
     DatabaseReference mDatabase;
@@ -39,10 +43,14 @@ public class DatMonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datmon);
         btnXemDonDat = (Button) findViewById(R.id.btnDonHang);
+        soBan = (TextView) findViewById(R.id.txtMaBan);
+        soBan.setText("3");
+        MaBan = soBan.getText().toString();
         btnXemDonDat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(DatMonActivity.this, XemDonDatActivity.class);
+                startActivity(intent);
             }
         });
 

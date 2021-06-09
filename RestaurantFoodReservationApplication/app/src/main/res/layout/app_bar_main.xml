@@ -25,6 +25,11 @@
             android:text="BÀN SỐ"
             android:textColor="#E9FFFFFF" />
 
+        <TextView
+            android:id="@+id/txtMaBan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/btnDonHang"
             android:layout_width="wrap_content"
