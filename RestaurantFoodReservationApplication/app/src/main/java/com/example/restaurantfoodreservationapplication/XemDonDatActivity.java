@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.restaurantfoodreservationapplication.Class.Chi_Tiet_Don_Dat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -59,13 +60,14 @@ public class XemDonDatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Query query = mDatabase.child("DonDat"+MaBan).orderByChild("maBan").equalTo(MaBan); //Sua lai ban cho phu hop
-                query.addValueEventListener(new ValueEventListener() {
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot singleSnapshot : snapshot.getChildren()) {
                             Chi_Tiet_Don_Dat ctdondat = singleSnapshot.getValue(Chi_Tiet_Don_Dat.class);
                             mDatabase.child("DonDat"+MaBan).child(singleSnapshot.getKey()).removeValue();
                             db.child("ThanhToan").push().setValue(ctdondat);
+                            Toast.makeText(XemDonDatActivity.this, "Da xac nhan mon an thanh cong!", Toast.LENGTH_SHORT).show();
                         }
                         recyclerAdapter.notifyDataSetChanged();
                     }
@@ -84,7 +86,7 @@ public class XemDonDatActivity extends AppCompatActivity {
         recycler = (RecyclerView) findViewById(R.id.recyclerview_ctdd);
         // DatabaseReference ref = mDatabase.child("MonAn");
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);
         recycler.setHasFixedSize(true);
         // Query MonAnquery = ref.equalTo("CB001");

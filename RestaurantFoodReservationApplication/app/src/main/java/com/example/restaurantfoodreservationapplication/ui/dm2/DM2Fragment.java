@@ -101,9 +101,9 @@ public class DM2Fragment extends Fragment {
             int i;
             @Override
             public void onItemClick(int position) {
-                i = 1;
+
                 // Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan,1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
-                db.child("DonDat").child("DonDat"+MaBan).orderByChild("tenMon").equalTo(dsMon.get(position).getTenMon()).addValueEventListener(new ValueEventListener() {
+                db.child("DonDat").child("DonDat"+MaBan).orderByChild("tenMon").equalTo(dsMon.get(position).getTenMon()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()==true) {
@@ -123,16 +123,14 @@ public class DM2Fragment extends Fragment {
                                 String key = ds.getKey();
                                 HashMap childUpdates = new HashMap();
                                 childUpdates.put(key, don);
-                                if (i==1) {
-                                    db.child("DonDat").child("DonDat" + MaBan).updateChildren(childUpdates);
-                                    recyclerAdapter.notifyDataSetChanged();
-                                }
-                                i = i+1;
+                                db.child("DonDat").child("DonDat" + MaBan).updateChildren(childUpdates);
+                                recyclerAdapter.notifyDataSetChanged();
                             }
                         }
                         else {
-                            Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
-                            db.child("DonDat").child("DonDat" + MaBan).push().setValue(don);
+                                Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
+                                db.child("DonDat").child("DonDat" + MaBan).push().setValue(don);
+                                recyclerAdapter.notifyDataSetChanged();
                         }
                     }
                     @Override

@@ -44,8 +44,8 @@ public class DatMonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_datmon);
         btnXemDonDat = (Button) findViewById(R.id.btnDonHang);
         soBan = (TextView) findViewById(R.id.txtMaBan);
-        soBan.setText("3");
-        MaBan = soBan.getText().toString();
+        soBan.setText(MaBan);
+       // MaBan = soBan.getText().toString();
         btnXemDonDat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,8 +90,8 @@ public class DatMonActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(DatMonActivity.this, DSBanActivity.class);
+                startActivity(intent);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -99,18 +99,16 @@ public class DM1Fragment extends Fragment {
             int i;
             @Override
             public void onItemClick(int position) {
-                i = 1;
+               // i = 1;
                // Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan,1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
-                db.child("DonDat").child("DonDat"+MaBan).orderByChild("tenMon").equalTo(dsMon.get(position).getTenMon()).addValueEventListener(new ValueEventListener() {
+                db.child("DonDat").child("DonDat"+MaBan).orderByChild("tenMon").equalTo(dsMon.get(position).getTenMon()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists()==true) {
+                            if (snapshot.exists()) {
                                 //snapshot bang NULL nen phia duoi du lieu bi sai
                                 for(DataSnapshot ds : snapshot.getChildren()) {
                                     Chi_Tiet_Don_Dat don = ds.getValue(Chi_Tiet_Don_Dat.class);
 
-
-                                    // Chi_Tiet_Don_Dat don = snapshot.getChildren().iterator().next().getValue(Chi_Tiet_Don_Dat.class);
                                     // Chi_Tiet_Don_Dat don = snapshot.getValue(Chi_Tiet_Don_Dat.class);
                                    // Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
 
@@ -121,16 +119,20 @@ public class DM1Fragment extends Fragment {
                                     String key = ds.getKey();
                                     HashMap childUpdates = new HashMap();
                                     childUpdates.put(key, don);
-                                    if (i==1) {
+                                   // if (i==1) {
                                         db.child("DonDat").child("DonDat" + MaBan).updateChildren(childUpdates);
                                         recyclerAdapter.notifyDataSetChanged();
-                                    }
-                                    i = i+1;
+                                   // }
+                                    //i = i+1;
                                 }
                             }
                             else {
-                                Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
-                                db.child("DonDat").child("DonDat" + MaBan).push().setValue(don);
+                                //if(i==1) {
+                                    Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
+                                    db.child("DonDat").child("DonDat" + MaBan).push().setValue(don);
+                                    recyclerAdapter.notifyDataSetChanged();
+                               // }
+                                //i=i+1;
                             }
                     }
                     @Override
