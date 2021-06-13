@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="75dp"
-        android:layout_height="99dp"
+        android:layout_width="112dp"
+        android:layout_height="145dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="332dp"
-        android:layout_marginRight="332dp"
+        android:layout_marginEnd="296dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_menu_camera" />
@@ -20,10 +19,11 @@
         android:id="@+id/textViewTenMon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="240dp"
-        android:layout_marginRight="240dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="176dp"
         android:text="Tên món:"
+        android:textColor="#9615CD"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,46 +31,34 @@
         android:id="@+id/textViewSL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="28dp"
         android:text="Số lượng"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textViewTenMon" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgTangSL"
         android:layout_width="30dp"
         android:layout_height="27dp"
         android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintEnd_toStartOf="@+id/textViewSL"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cong" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imgGiamSL"
         android:layout_width="30dp"
         android:layout_height="27dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintStart_toEndOf="@+id/textViewSL"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tru" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
     /*SAU NÀY Ở ĐÂY LÀ NÚT THOÁT*/
 
 
