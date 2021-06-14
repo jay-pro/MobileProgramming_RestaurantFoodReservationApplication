@@ -1,27 +1,19 @@
 package com.example.restaurantfoodreservationapplication.Class;
 
 public class Chi_Tiet_Don_Dat {
-    private String MaBan;
-    private String TenMon;
     private double DonGia;
+    private String MaBan;
     private int SoLuong;
+    private String TenMon;
+
     public Chi_Tiet_Don_Dat() { }
-
-    public String getMaBan() {
-        return MaBan;
-    }
-
-    public void setMaBan(String maBan) {
+    public Chi_Tiet_Don_Dat(double donGia, String maBan, int soLuong, String tenMon) {
+        DonGia = donGia;
         MaBan = maBan;
-    }
-
-    public String getTenMon() {
-        return TenMon;
-    }
-
-    public void setTenMon(String tenMon) {
+        SoLuong = soLuong;
         TenMon = tenMon;
     }
+
 
     public double getDonGia() {
         return DonGia;
@@ -29,6 +21,14 @@ public class Chi_Tiet_Don_Dat {
 
     public void setDonGia(double donGia) {
         DonGia = donGia;
+    }
+
+    public String getMaBan() {
+        return MaBan;
+    }
+
+    public void setMaBan(String maBan) {
+        MaBan = maBan;
     }
 
     public int getSoLuong() {
@@ -39,30 +39,11 @@ public class Chi_Tiet_Don_Dat {
         SoLuong = soLuong;
     }
 
-    public Chi_Tiet_Don_Dat(String maBan, String tenMon, double donGia, int soLuong) {
-        MaBan = maBan;
-        TenMon = tenMon;
-        DonGia = donGia;
-        SoLuong = soLuong;
+    public String getTenMon() {
+        return TenMon;
     }
 
-
-
-
-/*  public String MaDonDat;
-        public String MaMon;
-        public int  SoLuong;
-
-        public Chi_Tiet_Don_Dat(String maDonDat, String maMon, int soLuong) {
-            MaDonDat = maDonDat;
-            MaMon = maMon;
-            SoLuong = soLuong;
-        }
-
-        public Chi_Tiet_Don_Dat() {
-        }*/
-
-
-
-
+    public void setTenMon(String tenMon) {
+        TenMon = tenMon;
+    }
 }

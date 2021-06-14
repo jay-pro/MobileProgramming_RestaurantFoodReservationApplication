@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DatMonActivity">
-/*phần dùng chung*/
+    /*phần dùng chung*/
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,6 +24,11 @@
             android:layout_height="wrap_content"
             android:text="BÀN SỐ"
             android:textColor="#E9FFFFFF" />
+
+        <TextView
+            android:id="@+id/txtMaBan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btnDonHang"

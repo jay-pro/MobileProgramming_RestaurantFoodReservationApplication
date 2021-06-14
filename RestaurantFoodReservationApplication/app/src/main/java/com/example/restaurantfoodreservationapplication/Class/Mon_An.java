@@ -2,15 +2,17 @@ package com.example.restaurantfoodreservationapplication.Class;
 
 public class Mon_An {
 
+    String Url;
     double GiaMon;
     String MaDM;
     String TenMon;
 
     public Mon_An() { }
-    public Mon_An(double giaMon, String maDM, String tenMon) {
+    public Mon_An(double giaMon, String maDM, String tenMon, String url) {
         GiaMon = giaMon;
         MaDM = maDM;
         TenMon = tenMon;
+        Url=url;
     }
     public double getGiaMon() {
         return GiaMon;
@@ -36,10 +38,11 @@ public class Mon_An {
         TenMon = tenMon;
     }
 
+    public String getUrl() {
+        return Url;
+    }
 
-
-
-
-
-
+    public void setUrl(String url) {
+        Url = url;
+    }
 }
