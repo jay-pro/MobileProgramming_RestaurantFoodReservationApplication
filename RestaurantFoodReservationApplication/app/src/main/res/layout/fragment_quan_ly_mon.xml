@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/qlm_background"
+    tools:context=".QuanLyMonActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QUẢN LÝ MÓN ĂN NHÀ HÀNG"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/toolbar"
+
+                android:background="@color/white"
+                app:title="Nhập thông tin món ăn mới...">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADD Dishes"
+                    android:id="@+id/add_btn"
+                    android:layout_marginRight="20dp"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="8dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:background="@color/purple_200"
+                    android:layout_gravity="right"/>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView"
+            android:clipToPadding="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical"
+                        android:background="@color/colorPrimary">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Enter Dish code"
+                            android:maxLines="2"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="24dp"
+                            android:paddingVertical="10dp"
+                            android:paddingHorizontal="20dp"
+                            android:background="#e6c7d1"
+                            android:id="@+id/code_res"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Enter Dish name"
+                            android:maxLines="2"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="24dp"
+                            android:paddingVertical="10dp"
+                            android:paddingHorizontal="20dp"
+                            android:background="#e6c7d1"
+                            android:layout_marginTop="8dp"
+                            android:id="@+id/name_res"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Enter Dish price"
+                            android:maxLines="2"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="24dp"
+                            android:paddingVertical="10dp"
+                            android:paddingHorizontal="20dp"
+                            android:layout_marginTop="8dp"
+                            android:background="#e6c7d1"
+                            android:id="@+id/price_res"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Enter Dish link image"
+                            android:maxLines="2"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="24dp"
+                            android:paddingVertical="10dp"
+                            android:paddingHorizontal="20dp"
+                            android:layout_marginTop="8dp"
+                            android:background="#e6c7d1"
+                            android:id="@+id/purl_res"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

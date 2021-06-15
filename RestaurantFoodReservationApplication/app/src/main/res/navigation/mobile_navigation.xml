@@ -22,4 +22,10 @@
         android:name="com.example.restaurantfoodreservationapplication.ui.dm3.DM3Fragment"
         android:label="Combo"
         tools:layout="@layout/recycleview" />
+
+    <fragment
+        android:id="@+id/nav_qlm"
+        android:name="com.example.restaurantfoodreservationapplication.ui.ui.main.QuanLyMonAnFragment"
+        android:label="Quan ly mon"
+        tools:layout="@layout/recycleview" />
 </navigation>
