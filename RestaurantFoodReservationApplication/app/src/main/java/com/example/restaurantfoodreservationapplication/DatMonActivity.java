@@ -39,7 +39,7 @@ public class DatMonActivity extends AppCompatActivity /*implements NavigationVie
     //private int currentFragment = FRAGMENT_DM1;//phát hiện đang ở fragment nào
 
 
-    Button btnXemDonDat;
+    Button btnXemDonDat, btnThanhToan;
     TextView soBan;
     public static String MaBan;
     Button btnDatMon;
@@ -54,6 +54,7 @@ public class DatMonActivity extends AppCompatActivity /*implements NavigationVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datmon);
         btnXemDonDat = (Button) findViewById(R.id.btnDonHang);
+        btnThanhToan = (Button) findViewById(R.id.btnThanhToan);
         soBan = (TextView) findViewById(R.id.txtMaBan);
         soBan.setText(MaBan);
         // MaBan = soBan.getText().toString();
@@ -64,6 +65,15 @@ public class DatMonActivity extends AppCompatActivity /*implements NavigationVie
                 startActivity(intent);
             }
         });
+
+        btnThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DatMonActivity.this, ThanhToanActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         /*
         FirebaseDatabase database = FirebaseDatabase.getInstance();

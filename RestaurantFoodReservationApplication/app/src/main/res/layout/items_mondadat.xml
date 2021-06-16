@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/img"
         android:layout_width="112dp"
         android:layout_height="145dp"
         android:layout_marginTop="16dp"
@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/ic_menu_camera" />
 
     <TextView
-        android:id="@+id/textViewTenMon"
+        android:id="@+id/textMaBan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -28,14 +28,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewSL"
+        android:id="@+id/textTongTien"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:layout_marginTop="28dp"
         android:text="Số lượng"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTenMon" />
+        app:layout_constraintStart_toEndOf="@+id/img"
+        app:layout_constraintTop_toBottomOf="@+id/textMaBan" />
 
     <ImageView
         android:id="@+id/imgTangSL"
@@ -43,9 +43,9 @@
         android:layout_height="27dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="88dp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewSL"
+        app:layout_constraintEnd_toStartOf="@+id/textTongTien"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/img"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cong" />
 
@@ -55,7 +55,7 @@
         android:layout_height="27dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="88dp"
-        app:layout_constraintStart_toEndOf="@+id/textViewSL"
+        app:layout_constraintStart_toEndOf="@+id/textTongTien"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tru" />
 
