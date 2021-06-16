@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <LinearLayout
@@ -20,90 +20,113 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Chi tiết nhân viên"
+            android:text="THÊM NHÂN VIÊN"
             android:textColor="#ff00"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textViewCTMaNV"
+        <EditText
+            android:id="@+id/edtMaNV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Mã nhân viên: "
+            android:hint="Mã Nhân viên"
             android:textColor="#187FAE"
             android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/textViewCTChucVu"
+        <EditText
+            android:id="@+id/edtChucVu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Chức vụ: "
+            android:hint="Chức vụ"
             android:textColor="#187FAE"
             android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/textViewCTTenNV"
+        <EditText
+            android:id="@+id/edtHoTen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Họ tên: "
+            android:hint="Họ Tên"
             android:textColor="#187FAE"
             android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/textViewCTGioiTinh"
+        <EditText
+            android:id="@+id/edtGioiTinh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Giới tính: "
+            android:hint="Giới tính"
             android:textColor="#187FAE"
             android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/textViewCTCMND"
+        <EditText
+            android:id="@+id/edtCMND"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="CMND: "
+            android:hint="CMND"
+            android:inputType="number"
             android:textColor="#187FAE"
             android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/textViewCTSDT"
+        <EditText
+            android:id="@+id/edtSDT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Số điện thoại: "
+            android:hint="Số điện thoại"
+            android:inputType="phone"
             android:textColor="#187FAE"
             android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/textViewCTDiaChi"
+
+        <EditText
+            android:id="@+id/edtLuong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Địa chỉ: "
+            android:hint="Lương"
+            android:inputType="number"
             android:textColor="#187FAE"
             android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textViewCTLuong"
+        <EditText
+            android:id="@+id/edtDiaChi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Lương: "
+            android:hint="Địa chỉ"
             android:textColor="#187FAE"
             android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/buttonDongXemChiTiet"
+
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
-            android:text="đóng" />
+            <Button
+                android:id="@+id/buttonDongYThemNV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="5"
+
+                android:text="Xác nhận" />
+
+            <Button
+                android:id="@+id/buttonHuyThemNV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="5"
+
+                android:text="Hủy" />
+        </LinearLayout>
 
 
     </LinearLayout>

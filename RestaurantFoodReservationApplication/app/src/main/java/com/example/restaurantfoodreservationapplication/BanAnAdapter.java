@@ -1,6 +1,7 @@
 package com.example.restaurantfoodreservationapplication;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantfoodreservationapplication.Class.Ban_An;
@@ -58,7 +60,39 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder>{
 
             btnsua = (Button) itemView.findViewById(R.id.btnSuaNV);
             btnxoa = (Button) itemView.findViewById(R.id.btnXoaBan);
-
+            btnsua.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    XacNhanXoa();
+                }
+            });
         }
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        context = recyclerView.getContext();
+    }
+
+    private void XacNhanXoa(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+        alertDialog.setTitle("Thông báo!");
+        alertDialog.setIcon(R.mipmap.ic_launcher);
+        alertDialog.setMessage("Bạn có muốn xóa môn học này không?");
+        alertDialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertDialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        alertDialog.show();
     }
 }

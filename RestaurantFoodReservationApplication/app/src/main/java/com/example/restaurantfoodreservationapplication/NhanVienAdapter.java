@@ -2,13 +2,16 @@ package com.example.restaurantfoodreservationapplication;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +36,12 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
         View itemView = layoutInflater.inflate(R.layout.row_nhanvien,parent,false);
 
         return new ViewHolder((itemView));
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        context = recyclerView.getContext();
     }
 
     @Override
@@ -70,13 +79,30 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
         btnchitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogLogin();
+                DialogDetail(getAdapterPosition());
+            }
+        });
+        btnsua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
-        private  void  DialogLogin() {
+        private  void  DialogDetail(int position) {
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+//            WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+//            lp.copyFrom(dialog.getWindow().getAttributes());
+//            DisplayMetrics metrics = new DisplayMetrics(); //get metrics of screen
+//            metrics = context.getResources().getDisplayMetrics();
+//            int width = metrics.widthPixels;
+//            int height = metrics.heightPixels;
+//            Toast.makeText(context, width + " d "+ height, Toast.LENGTH_SHORT).show();
+//            lp.width = (int) (width * 0.9f);
+////            lp.height = (int) (height * 0.6f);
+
             dialog.setContentView(R.layout.dialog_chitietnhanvien);
             dialog.setCanceledOnTouchOutside(false); // nhap ra ngoai khong tat dialog
             // ánh xạ
@@ -88,8 +114,19 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
             TextView txdSDT = (TextView) dialog.findViewById(R.id.textViewCTSDT);
             TextView txtDiaChi = (TextView) dialog.findViewById(R.id.textViewCTDiaChi);
             TextView txtLuong = (TextView) dialog.findViewById(R.id.textViewCTLuong);
-
             Button btnDong = (Button) dialog.findViewById(R.id.buttonDongXemChiTiet);
+
+            //set text
+            txtMaNV.setText("Mã nhân viên: " + dataNhanViens.get(position).getID());
+            txtChucVu.setText("Chức vụ: " + dataNhanViens.get(position).getChucVu());
+            txtTenNV.setText("Họ Tên: " + dataNhanViens.get(position).getHoTen());
+            txtGioiTinh.setText("Giới tính: " + dataNhanViens.get(position).getGioiTinh());
+            txtCMND.setText("CMND: " + dataNhanViens.get(position).getCMND());
+            txdSDT.setText("Số điện thoại: " + dataNhanViens.get(position).getSDT());
+            txtDiaChi.setText("Địa chỉ: " + dataNhanViens.get(position).getDiaChi());
+            txtLuong.setText("Lương: " + dataNhanViens.get(position).getLuong());
+
+
 
             btnDong.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -98,6 +135,10 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
                 }
             });
             dialog.show();
+//            dialog.getWindow().setAttributes(lp);
         }
+
+
+
 }
 }
