@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        btnQLMonAn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this,.class);
-//                startActivity(intent);
-//            }
-//        });
+        btnQLMonAn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,QuanLyMonActivity.class);
+                startActivity(intent);
+            }
+        });
         btnQLNV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
