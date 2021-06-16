@@ -16,5 +16,11 @@
             android:id="@+id/nav_dm3"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Combo" />
+
+        <item
+            android:id="@+id/nav_qlm"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Quan ly mon" />
     </group>
+
 </menu>

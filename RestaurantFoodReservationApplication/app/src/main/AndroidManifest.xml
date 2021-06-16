@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RestaurantFoodReservationApplication">
+
         <activity
             android:name=".DSBanActivity"
             android:label="@string/app_name"
@@ -32,6 +33,7 @@
             android:label="@string/title_activity_quanly_nhanvien"
             android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar" />
         <activity android:name=".ThanhToanActivity" />
+
         <activity
             android:name=".DanhSachMonActivity"
             android:label="@string/title_activity_danh_sach_mon"
@@ -49,17 +51,14 @@
             android:name=".DatMonActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar">
-            <!-- <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
 
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
         </activity>
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
+
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
@@ -70,6 +69,18 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+        </activity>
+
+        <activity android:name=".QuanLyMonActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>
