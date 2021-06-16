@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantfoodreservationapplication.Class.Ban_An;
-import com.example.restaurantfoodreservationapplication.Class.Nhan_Vien;
 
 import java.util.ArrayList;
 
@@ -53,11 +52,11 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder>{
         public ViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            txtMaBan = (TextView) itemView.findViewById(R.id.txtTenBanAn);
-            txtTenBan = (TextView) itemView.findViewById(R.id.txtMaBanAn);
+            txtMaBan = (TextView) itemView.findViewById(R.id.txtTenNhanVien);
+            txtTenBan = (TextView) itemView.findViewById(R.id.txtMaNhanVien);
             txtSoLuong = (TextView) itemView.findViewById(R.id.txtSoLuongCho);
 
-            btnsua = (Button) itemView.findViewById(R.id.btnSuaBan);
+            btnsua = (Button) itemView.findViewById(R.id.btnSuaNV);
             btnxoa = (Button) itemView.findViewById(R.id.btnXoaBan);
 
         }

@@ -45,7 +45,7 @@ public class DM1Fragment extends Fragment {
         //new ViewModelProvider(this).get(DM1ViewModel.class);
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         mDatabase = db.child("MonAn");
-        Query query =  mDatabase.orderByChild("MaDM").equalTo("DA");
+        Query query =  mDatabase.orderByChild("maDM").equalTo("DA");
         View root = inflater.inflate(R.layout.recycleview, container, false);
 
         final TextView textView = root.findViewById(R.id.text_home); ////moiws theem

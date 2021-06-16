@@ -54,12 +54,12 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
     public ViewHolder(@NonNull View itemView) {
 
         super(itemView);
-        txtName = (TextView) itemView.findViewById(R.id.txtTenBanAn);
-        txtMaNV = (TextView) itemView.findViewById(R.id.txtMaBanAn);
+        txtName = (TextView) itemView.findViewById(R.id.txtTenNhanVien);
+        txtMaNV = (TextView) itemView.findViewById(R.id.txtMaNhanVien);
         imgHinh = (ImageView) itemView.findViewById(R.id.imageViewNhanVien);
         btnchitiet = (Button) itemView.findViewById(R.id.buttonChiTietNV);
-        btnsua = (Button) itemView.findViewById(R.id.buttonSuaNV);
-        btnxoa = (Button) itemView.findViewById(R.id.buttonXoaBan);
+        btnsua = (Button) itemView.findViewById(R.id.btnSuaNV);
+        btnxoa = (Button) itemView.findViewById(R.id.buttonXoaNV);
 //            itemView.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {

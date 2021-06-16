@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/txtMaBanAn"
+        android:id="@+id/txtMaNhanVien"
         android:textSize="24sp"
         android:textColor="#0A2CE8"
         android:layout_width="wrap_content"
@@ -27,10 +27,10 @@
         android:layout_marginTop="12dp"
         android:text="Số lượng chỗ"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTenBanAn" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTenNhanVien" />
 
     <TextView
-        android:id="@+id/txtTenBanAn"
+        android:id="@+id/txtTenNhanVien"
         android:textSize="24sp"
         android:textColor="#0A2CE8"
         android:layout_width="wrap_content"
@@ -39,10 +39,10 @@
         android:layout_marginTop="16dp"
         android:text="Tên Bàn ăn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtMaBanAn" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMaNhanVien" />
 
     <Button
-        android:id="@+id/btnSuaBan"
+        android:id="@+id/btnSuaNV"
         android:layout_width="162dp"
         android:layout_height="44dp"
         android:layout_marginStart="36dp"
@@ -58,7 +58,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="152dp"
         android:text="Xóa"
-        app:layout_constraintStart_toEndOf="@+id/btnSuaBan"
+        app:layout_constraintStart_toEndOf="@+id/btnSuaNV"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

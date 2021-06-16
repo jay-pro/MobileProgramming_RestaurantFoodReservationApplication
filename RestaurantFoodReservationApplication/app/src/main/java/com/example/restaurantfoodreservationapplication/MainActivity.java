@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnQLNV,btnQLDatMon,btnQLMonAn,btnQLBan;
+    Button btnQLNV,btnQLDatMon,btnQLMonAn,btnQLBan, btnThongKe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         btnQLDatMon = (Button) findViewById(R.id.btnQLDatmon);
         btnQLMonAn = (Button) findViewById(R.id.btnQLMonAn);
         btnQLBan = (Button) findViewById(R.id.btnQLBan);
+        btnThongKe = (Button) findViewById(R.id.btnThongKe);
 
         btnQLBan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,21 +30,28 @@ public class MainActivity extends AppCompatActivity {
         btnQLDatMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,DatMonActivity.class);
+                Intent intent = new Intent(MainActivity.this,DSBanActivity.class);
                 startActivity(intent);
             }
         });
-//        btnQLMonAn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this,.class);
-//                startActivity(intent);
-//            }
-//        });
+        btnQLMonAn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,QuanLyMonActivity.class);
+               startActivity(intent);
+            }
+        });
         btnQLNV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,QLNhanVienActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnThongKe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ThongKeActivity.class);
                 startActivity(intent);
             }
         });

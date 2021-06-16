@@ -40,7 +40,7 @@ public class QuanLyMonActivity extends AppCompatActivity {
     Bitmap bitmap;
     HashMap<String,String> hashMap = new HashMap<>();
     FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-    final String userID=firebaseUser.getUid();
+ //   final String userID=firebaseUser.getUid();
     EditText code_res, name_res, price_res, purl_res;
     boolean flagadd = false;
     DatabaseReference monan_id;
@@ -57,7 +57,7 @@ public class QuanLyMonActivity extends AppCompatActivity {
         name_res = findViewById(R.id.name_res);
         price_res = findViewById(R.id.price_res);
         purl_res = findViewById(R.id.purl_res);
-        monan_id = FirebaseDatabase.getInstance().getReference("User").child(userID).child("monan_id");
+      //  monan_id = FirebaseDatabase.getInstance().getReference("User").child(userID).child("monan_id");
         add_btn.setOnClickListener(v -> {
             addtofirebase();
         });

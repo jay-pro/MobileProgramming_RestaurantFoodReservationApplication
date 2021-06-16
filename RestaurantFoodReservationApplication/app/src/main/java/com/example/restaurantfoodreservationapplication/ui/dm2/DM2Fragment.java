@@ -48,7 +48,7 @@ public class DM2Fragment extends Fragment {
                 new ViewModelProvider(this).get(DM2ViewModel.class);*/
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         mDatabase = db.child("MonAn");
-        Query query =  mDatabase.orderByChild("MaDM").equalTo("DR");
+        Query query =  mDatabase.orderByChild("maDM").equalTo("DR");
         View root = inflater.inflate(R.layout.recycleview, container, false);
         BtnDatMon = (Button) root.findViewById(R.id.btnDatMon);
         final TextView textView = root.findViewById(R.id.text_home); ////moiws theem
