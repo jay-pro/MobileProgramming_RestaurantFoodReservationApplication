@@ -16,8 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RestaurantFoodReservationApplication">
+        <activity android:name=".DSBanActivity" />
         <activity
-            android:name=".DSBanActivity"
+            android:name=".QLNhanVienActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar">
             <intent-filter>
