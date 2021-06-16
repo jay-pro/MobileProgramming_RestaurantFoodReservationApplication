@@ -2,10 +2,10 @@ package com.example.restaurantfoodreservationapplication.Class;
 
 public class Mon_An {
 
-    double GiaMon;
-    String MaDM;
-    String TenMon;
-    String Url;
+    private double GiaMon;
+    private String MaDM;
+    private String TenMon;
+    private String Url;
 
     public Mon_An() { }
     public Mon_An(double giaMon, String maDM, String tenMon, String url) {
