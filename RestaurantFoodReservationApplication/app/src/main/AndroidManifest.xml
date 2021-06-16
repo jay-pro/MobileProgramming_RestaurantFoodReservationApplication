@@ -23,11 +23,22 @@
             android:name=".DSBanActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar">
+        </activity>
+        <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".QLNhanVienActivity" />
+
+        <activity
+            android:name=".QLBanAnActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar">
+
         </activity>
         <activity android:name=".XemDonDatActivity" />
         <activity
@@ -54,6 +65,17 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar">
 
+
+
+
+            <!--
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+            -->
+
         </activity>
         <activity
             android:name=".RegisterActivity"
@@ -64,11 +86,6 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
-<<<<<<< HEAD
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-=======
         </activity>
 
         <activity android:name=".QuanLyMonActivity"
@@ -76,26 +93,11 @@
             android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
->>>>>>> Nhi-QLmon
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-
-<<<<<<< HEAD
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
 
         </activity>
 
-        <activity android:name=".QuanLyMonActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar">
-        </activity>
 
-=======
->>>>>>> Nhi-QLmon
+
     </application>
 
 </manifest>

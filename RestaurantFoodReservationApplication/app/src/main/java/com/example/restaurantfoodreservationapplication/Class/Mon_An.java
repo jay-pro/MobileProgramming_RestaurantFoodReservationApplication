@@ -68,5 +68,6 @@ public class Mon_An {
 
     public void setUrl(String url) {
         Url = url;
+    }
 
 }
