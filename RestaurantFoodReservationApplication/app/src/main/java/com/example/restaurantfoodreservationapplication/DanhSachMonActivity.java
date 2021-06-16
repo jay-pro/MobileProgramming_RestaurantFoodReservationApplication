@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantfoodreservationapplication.Class.Mon_An;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DanhSachMonActivity extends AppCompatActivity {
 
@@ -50,7 +48,7 @@ public class DanhSachMonActivity extends AppCompatActivity {
         GiaMon =(TextView) findViewById(R.id.txtGiaTien);
         HinhAnh =(ImageView) findViewById(R.id.imageView1);
         MonAn=(CardView) findViewById(R.id.cardview);*/
-        recycler = (RecyclerView) findViewById(R.id.recyclerview);
+        recycler = (RecyclerView) findViewById(R.id.recyclerview_hoadon);
        // DatabaseReference ref = mDatabase.child("MonAn");
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,true);

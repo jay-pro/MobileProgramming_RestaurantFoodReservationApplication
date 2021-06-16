@@ -7,13 +7,15 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.restaurantfoodreservationapplication.R;
 
 public class SecondFragment extends Fragment {
 
-    @Override
+   @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState

@@ -16,6 +16,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RestaurantFoodReservationApplication">
+        <activity android:name=".ThongKeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar">
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
         <activity
             android:name=".DSBanActivity"
             android:label="@string/app_name"
@@ -49,11 +58,14 @@
             android:name=".DatMonActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.RestaurantFoodReservationApplication.NoActionBar">
-            <!-- <intent-filter>
+
+            <!--
+             <intent-filter>
                  <action android:name="android.intent.action.MAIN" />
 
                  <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
+             </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".RegisterActivity"

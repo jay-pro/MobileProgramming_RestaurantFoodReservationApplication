@@ -4,18 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.restaurantfoodreservationapplication.Class.Chi_Tiet_Don_Dat;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
 import java.util.List;
 
@@ -51,6 +47,7 @@ public class RecyclerDonDatAdapter extends RecyclerView.Adapter<RecyclerDonDatAd
         //bind data to viewholder
         holder.tvTenMon.setText(CTDon.getTenMon());
         holder.tvSoLuong.setText(String.valueOf(CTDon.getSoLuong()));
+        Glide.with(context).load(dsDonDat.get(position).getUrl()).into(holder.imgHinh);
 
     }
 
@@ -63,13 +60,15 @@ public class RecyclerDonDatAdapter extends RecyclerView.Adapter<RecyclerDonDatAd
         private ImageView imgGiamSL;
         private TextView tvTenMon;
         private TextView tvSoLuong;
+        private ImageView imgHinh;
 
         public DataViewHolder(View itemView, RecyclerDonDatAdapter.OnItemClickListener listener) {
             super(itemView);
-            tvTenMon = (TextView) itemView.findViewById(R.id.textViewTenMon);
-            tvSoLuong = (TextView) itemView.findViewById(R.id.textViewSL);
+            tvTenMon = (TextView) itemView.findViewById(R.id.textMaBan);
+            tvSoLuong = (TextView) itemView.findViewById(R.id.textTongTien);
             imgTangSL = (ImageView) itemView.findViewById(R.id.imgTangSL);
             imgGiamSL = (ImageView) itemView.findViewById(R.id.imgGiamSL);
+            imgHinh = (ImageView) itemView.findViewById(R.id.img);
             imgTangSL.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

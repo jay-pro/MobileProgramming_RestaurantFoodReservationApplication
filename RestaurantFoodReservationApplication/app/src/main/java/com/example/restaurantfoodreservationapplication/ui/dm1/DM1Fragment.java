@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.example.restaurantfoodreservationapplication.DatMonActivity.MaBan;
-import static com.example.restaurantfoodreservationapplication.RecyclerDonDatAdapter.soluong;
 
 public class DM1Fragment extends Fragment {
     ListView MonAn;
@@ -128,7 +127,7 @@ public class DM1Fragment extends Fragment {
                         }
                         else {
                             //if(i==1) {
-                            Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
+                            Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon(), dsMon.get(position).getUrl()); //Sua lai ban cho phu hop
                             db.child("DonDat").child("DonDat" + MaBan).push().setValue(don);
                             recyclerAdapter.notifyDataSetChanged();
                             // }

@@ -37,6 +37,13 @@
             android:text="Xem đơn gọi món"
             app:backgroundTint="#3BDCCD" />
 
+        <Button
+            android:id="@+id/btnThanhToan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#3BDCCD"
+            android:text="Thanh toan" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
