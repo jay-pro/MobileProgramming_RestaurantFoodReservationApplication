@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="#FD00FFE8"
+        tools:layout_editor_absoluteX="263dp"
+        tools:layout_editor_absoluteY="228dp">
+        <TextView
+            android:padding="10dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="#ff00"
+            android:text="Chi tiết nhân viên"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewCTMaNV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã nhân viên: " />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewCTChucVu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chức vụ: " />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewCTTenNV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Họ tên: " />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewCTGioiTinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giới tính: " />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewCTCMND"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CMND: " />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewCTSDT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Số điện thoại: " />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewCTDiaChi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ: " />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewCTLuong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lương: " />
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/buttonDongXemChiTiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="đóng" />
+
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,7 @@ public class QLNhanVienActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_q_l_nhan_vien);
-        btnThem = (Button) findViewById(R.id.buttonThemNV);
+        btnThem = (Button) findViewById(R.id.btnThemNhanVien);
         nhanvienAdapter = new NhanVienAdapter(arrayListNV,getApplicationContext());
         recyclerViewNV= (RecyclerView) findViewById(R.id.recycler_viewNhanVien);
 //        btnThem.setOnClickListener(new View.OnClickListener() {

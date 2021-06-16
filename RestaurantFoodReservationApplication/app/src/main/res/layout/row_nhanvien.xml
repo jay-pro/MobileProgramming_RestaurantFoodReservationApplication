@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtMaNV"
+        android:id="@+id/txtMaBanAn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -26,14 +26,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtTenNV"
+        android:id="@+id/txtTenBanAn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
         android:text="Tên NV"
         app:layout_constraintStart_toEndOf="@+id/imageViewNhanVien"
-        app:layout_constraintTop_toBottomOf="@+id/txtMaNV" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMaBanAn" />
 
     <Button
         android:id="@+id/buttonChiTietNV"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewNhanVien" />
 
     <Button
-        android:id="@+id/btnSuaNV"
+        android:id="@+id/btnSuaBan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -56,12 +56,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonXoaNV"
+        android:id="@+id/buttonXoaBan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="116dp"
         android:text="Xóa"
-        app:layout_constraintStart_toEndOf="@+id/btnSuaNV"
+        app:layout_constraintStart_toEndOf="@+id/btnSuaBan"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

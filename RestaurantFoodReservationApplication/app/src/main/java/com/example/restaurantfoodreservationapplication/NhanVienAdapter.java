@@ -1,13 +1,14 @@
 package com.example.restaurantfoodreservationapplication;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -53,12 +54,12 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
     public ViewHolder(@NonNull View itemView) {
 
         super(itemView);
-        txtName = (TextView) itemView.findViewById(R.id.txtTenNV);
-        txtMaNV = (TextView) itemView.findViewById(R.id.txtMaNV);
+        txtName = (TextView) itemView.findViewById(R.id.txtTenBanAn);
+        txtMaNV = (TextView) itemView.findViewById(R.id.txtMaBanAn);
         imgHinh = (ImageView) itemView.findViewById(R.id.imageViewNhanVien);
         btnchitiet = (Button) itemView.findViewById(R.id.buttonChiTietNV);
         btnsua = (Button) itemView.findViewById(R.id.buttonSuaNV);
-        btnxoa = (Button) itemView.findViewById(R.id.buttonXoaNV);
+        btnxoa = (Button) itemView.findViewById(R.id.buttonXoaBan);
 //            itemView.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
@@ -69,9 +70,34 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
         btnchitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Vua nhan vao" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                DialogLogin();
             }
         });
     }
+        private  void  DialogLogin() {
+            Dialog dialog = new Dialog(context);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.dialog_chitietnhanvien);
+            dialog.setCanceledOnTouchOutside(false); // nhap ra ngoai khong tat dialog
+            // ánh xạ
+            TextView txtMaNV = (TextView) dialog.findViewById(R.id.textViewCTMaNV);
+            TextView txtChucVu = (TextView) dialog.findViewById(R.id.textViewCTChucVu);
+            TextView txtTenNV = (TextView) dialog.findViewById(R.id.textViewCTTenNV);
+            TextView txtGioiTinh = (TextView) dialog.findViewById(R.id.textViewCTGioiTinh);
+            TextView txtCMND = (TextView) dialog.findViewById(R.id.textViewCTCMND);
+            TextView txdSDT = (TextView) dialog.findViewById(R.id.textViewCTSDT);
+            TextView txtDiaChi = (TextView) dialog.findViewById(R.id.textViewCTDiaChi);
+            TextView txtLuong = (TextView) dialog.findViewById(R.id.textViewCTLuong);
+
+            Button btnDong = (Button) dialog.findViewById(R.id.buttonDongXemChiTiet);
+
+            btnDong.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.cancel();
+                }
+            });
+            dialog.show();
+        }
 }
 }

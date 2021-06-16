@@ -4,21 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:orientation="vertical"
-    tools:context=".QLNhanVienActivity">
+    tools:context=".QLBanAnActivity">
+
 
     <Button
-        android:id="@+id/btnThemNhanVien"
+        android:id="@+id/btnThemBanAn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Them Nhan vien" />
+        android:text="Thêm bàn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_viewNhanVien"
+        android:id="@+id/recycler_viewBanAN"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="24dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="281dp" />
+
 
 </LinearLayout>
