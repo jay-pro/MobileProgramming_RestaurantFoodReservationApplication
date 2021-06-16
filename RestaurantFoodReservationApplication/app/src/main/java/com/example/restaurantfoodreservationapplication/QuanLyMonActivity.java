@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.restaurantfoodreservationapplication.Class.Mon_An;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -47,7 +48,8 @@ public class QuanLyMonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_quan_ly_mon);
+        //setContentView(R.layout.fragment_quan_ly_mon);
+        setContentView(R.layout.activity_quan_ly_mon);
 
         toolbar = findViewById(R.id.toolbar);
         add_btn = findViewById(R.id.add_btn);
@@ -71,17 +73,20 @@ public class QuanLyMonActivity extends AppCompatActivity {
         ProgressDialog dialog = new ProgressDialog(this);
         dialog.setTitle("Adding");
         dialog.show();
+        flagadd = true;
         if(flagadd == true){
             Intent intent = new Intent(QuanLyMonActivity.this, DatMonActivity.class);
             DatabaseReference dbr = FirebaseDatabase.getInstance().getReference().child("MonAn");
-            hashMap.put("GiaMon",price_res.getText().toString());
+            Mon_An mon_an = new Mon_An(Double.parseDouble(price_res.getText().toString()),code_res.getText().toString(),name_res.getText().toString(),purl_res.getText().toString());
+            dbr.push().setValue(mon_an);
+            /*hashMap.put("GiaMon",price_res.getText().toString());
             hashMap.put("MaDM",code_res.getText().toString());
             hashMap.put("TenMon",name_res.getText().toString());
-            hashMap.put("Url",purl_res.getText().toString());
-            String id = UUID.randomUUID().toString();
+            hashMap.put("Url",purl_res.getText().toString());*/
+            /*String id = UUID.randomUUID().toString();
             monan_id.child(id).setValue(hashMap);
             dbr.child(id).setValue(hashMap);
-            monan_id.child(id).setValue(true);
+            monan_id.child(id).setValue(true);*/
             flagadd=false;
             dialog.dismiss();
             dialog.setMessage("Added Successfully");

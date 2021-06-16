@@ -5,12 +5,14 @@ public class Mon_An {
     double GiaMon;
     String MaDM;
     String TenMon;
+    String Purl;
 
     public Mon_An() { }
-    public Mon_An(double giaMon, String maDM, String tenMon) {
+    public Mon_An(double giaMon, String maDM, String tenMon, String purl) {
         GiaMon = giaMon;
         MaDM = maDM;
         TenMon = tenMon;
+        Purl = purl;
     }
     public double getGiaMon() {
         return GiaMon;
@@ -36,10 +38,11 @@ public class Mon_An {
         TenMon = tenMon;
     }
 
+    public String getPurl() {
+        return Purl;
+    }
 
-
-
-
-
-
+    public void setPurl(String purl) {
+        Purl = purl;
+    }
 }
