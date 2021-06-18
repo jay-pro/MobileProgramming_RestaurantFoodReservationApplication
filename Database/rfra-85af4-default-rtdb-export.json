@@ -1,0 +1,639 @@
+{
+  "BanAn" : {
+    "-McOZqyoXNHvPMtThfQc" : {
+      "maBan" : "B02",
+      "soCho" : 35,
+      "tenBan" : "Ban 25"
+    },
+    "-McOZtyen5iwUfrHGevX" : {
+      "maBan" : "B04",
+      "soCho" : 4,
+      "tenBan" : "Ban 4"
+    },
+    "-McTGnizuNAkJTzSyAMz" : {
+      "maBan" : "B03",
+      "soCho" : 2001,
+      "tenBan" : "Ban 24"
+    }
+  },
+  "ChuaThanhToan" : {
+    "DonBanB02" : {
+      "-McSpE7DR9MvCFOz5cM8" : {
+        "donGia" : 97000,
+        "maBan" : "B02",
+        "soLuong" : 2,
+        "tenMon" : "Coconut Mezcal Margarita",
+        "url" : "https://i.pinimg.com/564x/46/43/94/4643948b6326a9c5894472060edac1d5.jpg"
+      },
+      "-McSps90of6L3MnSubkZ" : {
+        "donGia" : 97000,
+        "maBan" : "B02",
+        "soLuong" : 2,
+        "tenMon" : "Sparkling Limoncello Cocktail",
+        "url" : "https://i.pinimg.com/564x/f1/ca/5b/f1ca5b286d857e26bc23f9bb5da3b708.jpg"
+      },
+      "-McSvJYk_UmAMGqTArJS" : {
+        "donGia" : 35000,
+        "maBan" : "B02",
+        "soLuong" : 2,
+        "tenMon" : "Honey Butter Chicken Biscuit",
+        "url" : "https://i.pinimg.com/564x/3a/e0/22/3ae022cb91b5abdb93fa3d0861880693.jpg"
+      },
+      "-McSvJYlGRHYQeH3fv4q" : {
+        "donGia" : 35000,
+        "maBan" : "B02",
+        "soLuong" : 1,
+        "tenMon" : "Sweet Soy Chicken Wings",
+        "url" : "https://i.pinimg.com/564x/3f/12/76/3f12760e9c84419a9284eacdab433ff7.jpg"
+      },
+      "-McSwXHF5Ie724e7fVMq" : {
+        "donGia" : 47000,
+        "maBan" : "B02",
+        "soLuong" : 1,
+        "tenMon" : "Poolside Slush",
+        "url" : "https://i.pinimg.com/564x/4f/ae/2b/4fae2b7fef56928ef58c552b387864ef.jpg"
+      },
+      "-McSxPZD9NuUu8vh6Yo_" : {
+        "donGia" : 97000,
+        "maBan" : "B02",
+        "soLuong" : 2,
+        "tenMon" : "Blackberry, Mint, Cucumber Gin",
+        "url" : "https://i.pinimg.com/564x/6d/f5/9e/6df59e31e1e3a7aa9b9476e8e694ed8d.jpg"
+      },
+      "-McSy649G5uFm6eK1yUg" : {
+        "donGia" : 97000,
+        "maBan" : "B02",
+        "soLuong" : 1,
+        "tenMon" : "Pink Paloma Cocktail",
+        "url" : "https://i.pinimg.com/564x/aa/60/7b/aa607b5433c5a39081c7190c5b1389c7.jpg"
+      },
+      "-McT0H6sPBLtOPvpFwDL" : {
+        "donGia" : 97000,
+        "maBan" : "B02",
+        "soLuong" : 1,
+        "tenMon" : "Cinnamon Bourbon with Bruleed Oranges",
+        "url" : "https://i.pinimg.com/564x/96/49/a1/9649a12e8a0617bc642c869ca46ae960.jpg"
+      }
+    },
+    "DonBanB04" : {
+      "-McTOdDU8_qkfbqJ3EYD" : {
+        "donGia" : 97000,
+        "maBan" : "B04",
+        "soLuong" : 1,
+        "tenMon" : "Cinnamon Bourbon with Bruleed Oranges",
+        "url" : "https://i.pinimg.com/564x/96/49/a1/9649a12e8a0617bc642c869ca46ae960.jpg"
+      },
+      "-McTOdDVhBnX8Ag5cAxv" : {
+        "donGia" : 35000,
+        "maBan" : "B04",
+        "soLuong" : 1,
+        "tenMon" : "Sweet Soy Chicken Wings",
+        "url" : "https://i.pinimg.com/564x/3f/12/76/3f12760e9c84419a9284eacdab433ff7.jpg"
+      },
+      "-McTOdDiXdzXl8qpdJJO" : {
+        "donGia" : 35000,
+        "maBan" : "B04",
+        "soLuong" : 1,
+        "tenMon" : "Bang Bang Chicken Recipe",
+        "url" : "https://i.pinimg.com/564x/aa/7b/ac/aa7bac50ef019865ecf756af99b7ea22.jpg"
+      }
+    }
+  },
+  "DaThanhToan" : {
+    "-McA06AX7r3ERIbm4_9l" : {
+      "maBan" : "2",
+      "ngayThanhToan" : "16/06/2021",
+      "tongTien" : 188000
+    },
+    "-McA1h2NQs2Vbe5TIBEZ" : {
+      "maBan" : "3",
+      "ngayThanhToan" : "14/06/2021",
+      "tongTien" : 1774000
+    },
+    "-McA2ONjn8cYwPLrrW69" : {
+      "maBan" : "3",
+      "ngayThanhToan" : "14/06/2021",
+      "tongTien" : 20000
+    },
+    "-McIbrUo0l3oDEK5oGL8" : {
+      "maBan" : "9",
+      "ngayThanhToan" : "16/06/2021",
+      "tongTien" : 614000
+    }
+  },
+  "DanhMuc" : {
+    "-Malb0_bGwWm7zelG4rz" : {
+      "MaDM" : "DR",
+      "TenDM" : "Thức uống"
+    },
+    "-MalcPzIgrnU3USCiKSI" : {
+      "MaDM" : "DA",
+      "TenDM" : "Đồ ăn"
+    },
+    "-MalcfEOeTpYwT-UDRqA" : {
+      "MaDM" : "CB",
+      "TenDM" : "Combo"
+    }
+  },
+  "DonDat" : {
+    "DonDat1" : {
+      "-McIu4ssPy7O2TN7p1w1" : {
+        "donGia" : 20000,
+        "maBan" : "1",
+        "soLuong" : 1,
+        "tenMon" : "Nước suối"
+      }
+    },
+    "DonDat2" : {
+      "-McLAhuz1kZNAJPWs7sz" : {
+        "donGia" : 123000,
+        "maBan" : "2",
+        "soLuong" : 1,
+        "tenMon" : "Mon",
+        "url" : "httpffff"
+      },
+      "-McLArBFfGVPhpcTqQHJ" : {
+        "donGia" : 69000,
+        "maBan" : "2",
+        "soLuong" : 1,
+        "tenMon" : "Phần ăn EVM 6 miếng gà McNuggets",
+        "url" : "https://mcdonalds.vn/uploads/2018/food/evm/EVM_03_6pcs_chicken_mcnuggets_0.png"
+      }
+    },
+    "DonDat4" : {
+      "-Mbpp3RpLPBJpuXhN75d" : {
+        "Url" : "https://mcdonalds.vn/uploads/2018/food/ga-ran/1-ga-ran.png",
+        "donGia" : 20000,
+        "maBan" : "4",
+        "soLuong" : 2,
+        "tenMon" : "Nước suối"
+      }
+    }
+  },
+  "MonAn" : {
+    "-M" : {
+      "GiaMon" : 36000,
+      "MaDM" : "DA",
+      "TenMon" : "1 miếng gà rán - 183 Kcal",
+      "Url" : "https://mcdonalds.vn/uploads/2018/food/ga-ran/1-ga-ran.png"
+    },
+    "-M_" : {
+      "GiaMon" : 20,
+      "MaDM" : "DA",
+      "TenMon" : "K",
+      "Url" : "https://mcdonalds.vn/uploads/2018/food/ga-ran/1-ga-ran.png"
+    },
+    "-M_1" : {
+      "GiaMon" : 76000,
+      "MaDM" : "DA",
+      "TenMon" : "Cơm phi lê gà cay McSpicy",
+      "Url" : "https://mcdonalds.vn/uploads/2018/food/rice/mcspicy_chicken_rice.png"
+    },
+    "-M_plfgAU-HevT0v4kVd" : {
+      "GiaMon" : 150000,
+      "MaDM" : "CB",
+      "TenMon" : "BTSMeal",
+      "Url" : "https://mcdonalds.vn/uploads/2018/food/ga-ran/1-ga-ran.png"
+    },
+    "-M_pxk43oP2W40uzPte2" : {
+      "GiaMon" : 289000,
+      "MaDM" : "DA",
+      "TenMon" : "9 miếng gà rán",
+      "Url" : "https://mcdonalds.vn/uploads/2018/food/ga-ran/1-ga-ran.png"
+    },
+    "-M_q18N_mN-9tuRXuKJr" : {
+      "GiaMon" : 20000,
+      "MaDM" : "DR",
+      "TenMon" : "Nước suối",
+      "Url" : "https://mcdonalds.vn/uploads/2018/food/ga-ran/1-ga-ran.png"
+    },
+    "-M_tnr2qvit350gEbuex" : {
+      "GiaMon" : 69000,
+      "MaDM" : "CB",
+      "TenMon" : "Phần ăn EVM 6 miếng gà McNuggets",
+      "Url" : "https://mcdonalds.vn/uploads/2018/food/evm/EVM_03_6pcs_chicken_mcnuggets_0.png"
+    },
+    "-McKrkGRGvMEdGQ5gDLA" : {
+      "giaMon" : 69000,
+      "maDM" : "CB",
+      "tenMon" : "Phần ăn EVM 6 miếng gà McNuggets",
+      "url" : "https://mcdonalds.vn/uploads/2018/food/evm/EVM_03_6pcs_chicken_mcnuggets_0.png"
+    },
+    "-McQcXvfb34ArV-d2PcK" : {
+      "giaMon" : 99999,
+      "maDM" : "DA",
+      "tenMon" : "Fried Chickens",
+      "url" : "https://i.pinimg.com/564x/f4/f3/50/f4f350738e29c828f3dab12762a2428f.jpg"
+    },
+    "-McQdTDEgHOeV8iZLZLi" : {
+      "giaMon" : 97000,
+      "maDM" : "DR",
+      "tenMon" : "Pink Paloma Cocktail",
+      "url" : "https://i.pinimg.com/564x/aa/60/7b/aa607b5433c5a39081c7190c5b1389c7.jpg"
+    },
+    "-McQdweZsFiTKHQGPN95" : {
+      "giaMon" : 97000,
+      "maDM" : "DR",
+      "tenMon" : "Blackberry, Mint, Cucumber Gin",
+      "url" : "https://i.pinimg.com/564x/6d/f5/9e/6df59e31e1e3a7aa9b9476e8e694ed8d.jpg"
+    },
+    "-McQeUUDgL1mgnpbfa-h" : {
+      "giaMon" : 97000,
+      "maDM" : "DR",
+      "tenMon" : "Sparkling Limoncello Cocktail",
+      "url" : "https://i.pinimg.com/564x/f1/ca/5b/f1ca5b286d857e26bc23f9bb5da3b708.jpg"
+    },
+    "-McQeop1_5sFk3Rl09g4" : {
+      "giaMon" : 97000,
+      "maDM" : "DR",
+      "tenMon" : "Coconut Mezcal Margarita",
+      "url" : "https://i.pinimg.com/564x/46/43/94/4643948b6326a9c5894472060edac1d5.jpg"
+    },
+    "-McQf9cDAiMHtUFgVuH8" : {
+      "giaMon" : 97000,
+      "maDM" : "DR",
+      "tenMon" : "Cinnamon Bourbon with Bruleed Oranges",
+      "url" : "https://i.pinimg.com/564x/96/49/a1/9649a12e8a0617bc642c869ca46ae960.jpg"
+    },
+    "-McQfdm9REqL5F8Uf4ed" : {
+      "giaMon" : 37000,
+      "maDM" : "DR",
+      "tenMon" : "Shirley Temple with 7up",
+      "url" : "https://i.pinimg.com/564x/2b/8f/ec/2b8fecce56091684da10a11dcceb0da0.jpg"
+    },
+    "-McQgFaYbBsBFUE9QoGf" : {
+      "giaMon" : 57000,
+      "maDM" : "DR",
+      "tenMon" : "Hot Vanilla Foam Milk",
+      "url" : "https://i.pinimg.com/564x/56/63/7c/56637cb41aa77d9e096eedf78feedc8c.jpg"
+    },
+    "-McQgVKLtjbStvnsdBp2" : {
+      "giaMon" : 47000,
+      "maDM" : "DR",
+      "tenMon" : "Poolside Slush",
+      "url" : "https://i.pinimg.com/564x/4f/ae/2b/4fae2b7fef56928ef58c552b387864ef.jpg"
+    },
+    "-McQgmYvtVbmcFQQc7aQ" : {
+      "giaMon" : 27000,
+      "maDM" : "DR",
+      "tenMon" : "Frozen Lemonade",
+      "url" : "https://i.pinimg.com/564x/54/3b/0d/543b0d52eb3bdce04f997ac8c4758663.jpg"
+    },
+    "-McQhBzIbTHWaLLleSFz" : {
+      "giaMon" : 37000,
+      "maDM" : "DR",
+      "tenMon" : "Rose Granita",
+      "url" : "https://i.pinimg.com/564x/34/80/49/3480494e9b645e92dd53722b3a7660a7.jpg"
+    },
+    "-McQhPhg-uklSjqKCGVa" : {
+      "giaMon" : 37000,
+      "maDM" : "DR",
+      "tenMon" : "Butterfly Pea Milk",
+      "url" : "https://i.pinimg.com/564x/f3/e1/b4/f3e1b471ffc75a560b6017d9ad6abdd1.jpg"
+    },
+    "-McQhjr24IVweExfTCXG" : {
+      "giaMon" : 57000,
+      "maDM" : "DR",
+      "tenMon" : "Hot Chocolate Dirty Snowmen",
+      "url" : "https://i.pinimg.com/564x/56/0a/c8/560ac8296f6566319b166a7a960a2251.jpg"
+    },
+    "-McQiC3D-TaH5QLvpvK_" : {
+      "giaMon" : 37000,
+      "maDM" : "DR",
+      "tenMon" : "Creamy Hot Cocoa",
+      "url" : "https://i.pinimg.com/564x/81/38/86/813886cef29dd13ae8bf8736b76f1bc1.jpg"
+    },
+    "-McQibWvQHTBAxhOi4lX" : {
+      "giaMon" : 77000,
+      "maDM" : "DR",
+      "tenMon" : "S'mores Freakshakes Milkshake",
+      "url" : "https://i.pinimg.com/564x/3a/d1/f5/3ad1f5f02331dd9cbee41cac204896f8.jpg"
+    },
+    "-McQj6N6UHLzSXzJBrpn" : {
+      "giaMon" : 47000,
+      "maDM" : "DR",
+      "tenMon" : "Strawberry Chocolate Mousse",
+      "url" : "https://i.pinimg.com/564x/76/6b/b0/766bb05717778b75587efe78cc258ae4.jpg"
+    },
+    "-McQjk7Z0SBaZhG8Oeau" : {
+      "giaMon" : 47000,
+      "maDM" : "DR",
+      "tenMon" : "Chopped Kiwis Mint Milk Mousse",
+      "url" : "https://i.pinimg.com/564x/2f/32/3e/2f323e4d6cd9c8dddf5b5109e6a2654e.jpg"
+    },
+    "-McQjznKzgxy0nuU7qja" : {
+      "giaMon" : 47000,
+      "maDM" : "DR",
+      "tenMon" : "Raspberry Parfait",
+      "url" : "https://i.pinimg.com/564x/7d/d5/71/7dd571d85ede676692c291394d63761c.jpg"
+    },
+    "-McQkC9BNxA8ZflkZnij" : {
+      "giaMon" : 47000,
+      "maDM" : "DR",
+      "tenMon" : "Blueberry Parfait",
+      "url" : "https://i.pinimg.com/564x/e1/54/14/e15414a5b8ce65857e6d717c5dbc0c0d.jpg"
+    },
+    "-McQklEu6EVTfYzO7h6O" : {
+      "giaMon" : 47000,
+      "maDM" : "DR",
+      "tenMon" : "Cranberry Parfait",
+      "url" : "https://i.pinimg.com/564x/c1/62/85/c162857c6abc4ed3a716b7f4ba1c2e0e.jpg"
+    },
+    "-McQl1rnXAS2qdckl8CU" : {
+      "giaMon" : 47000,
+      "maDM" : "DR",
+      "tenMon" : "Mangos Kiwis Blueberry Parfait",
+      "url" : "https://i.pinimg.com/564x/70/d5/d3/70d5d34fb22d7573793560a8f99b1e70.jpg"
+    },
+    "-McQlpTWA_9hpEN57sIH" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Honey Butter Chicken Biscuit",
+      "url" : "https://i.pinimg.com/564x/3a/e0/22/3ae022cb91b5abdb93fa3d0861880693.jpg"
+    },
+    "-McQm4VO626VgSXIaUM9" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Cinamon French Toast Sticks",
+      "url" : "https://i.pinimg.com/564x/d3/4b/08/d34b085ff230b325d9cb336ea61c0e7e.jpg"
+    },
+    "-McQmRISIy846fWAqv4A" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Honey Lime Sriracha Chicken Poppers",
+      "url" : "https://i.pinimg.com/564x/b0/e8/0a/b0e80a9d547e0524136d64b7584ce9ef.jpg"
+    },
+    "-McQmeGVkfq3k6D0DLE7" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Sweet Soy Chicken Wings",
+      "url" : "https://i.pinimg.com/564x/3f/12/76/3f12760e9c84419a9284eacdab433ff7.jpg"
+    },
+    "-McQmtXZy1gbL8Fd-ho9" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Sticky and Crispy Chicken Wings",
+      "url" : "https://i.pinimg.com/564x/8a/b2/b8/8ab2b87433e3a642a540f6fce9413f53.jpg"
+    },
+    "-McQnDPG7wknzYzZmFoL" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Bang Bang Chicken Recipe",
+      "url" : "https://i.pinimg.com/564x/aa/7b/ac/aa7bac50ef019865ecf756af99b7ea22.jpg"
+    },
+    "-McQnOZDEMYZwATRmtUb" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Bang Bang Shrimps Cups",
+      "url" : "https://i.pinimg.com/564x/32/1c/0b/321c0bec31214c11105302bac07d9468.jpg"
+    },
+    "-McQn_xP-YAC3uXSWJ94" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Spicy Shrimp Sushi Stacks",
+      "url" : "https://i.pinimg.com/564x/22/f5/d5/22f5d5d34a21a5933d0557f928a0a40e.jpg"
+    },
+    "-McQnx8b2mDl4l_QVJ3d" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Spicy Shrimp Stacks with Mango Salsa",
+      "url" : "https://i.pinimg.com/564x/9f/7a/95/9f7a956737dcca05c743b4866da35840.jpg"
+    },
+    "-McQoPuQinYhgcNfvFKN" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Simple Fresh Vietnamse Spring Rolls",
+      "url" : "https://i.pinimg.com/564x/17/88/61/17886183babfb5735c0c21a9388b16cb.jpg"
+    },
+    "-McQoaKAsQXCCx8MDlAj" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Chicken Spring Rolls",
+      "url" : "https://i.pinimg.com/474x/70/36/e4/7036e472a42f1c5989fd6f404e4bdc91.jpg"
+    },
+    "-McQokl8G8z3w03yzZRa" : {
+      "giaMon" : 35000,
+      "maDM" : "DA",
+      "tenMon" : "Thai Red Curry Noodle Soup",
+      "url" : "https://i.pinimg.com/474x/38/10/73/38107317c7b9d2dc6e43a75d5fe989b8.jpg"
+    },
+    "-McQpG4868ENK64muqNx" : {
+      "giaMon" : 30000,
+      "maDM" : "DA",
+      "tenMon" : "Summer Zucchini Salad Recipe",
+      "url" : "https://i.pinimg.com/474x/80/89/6c/80896c1d21bdcdc578c8bf052d18cbad.jpg"
+    },
+    "-McQpUff36T7x5YY1-Ky" : {
+      "giaMon" : 30000,
+      "maDM" : "DA",
+      "tenMon" : "Healthy Chicken Pasta Salad",
+      "url" : "https://i.pinimg.com/474x/ad/98/aa/ad98aadf4d3715cedaa9ad65c0feb8c8.jpg"
+    },
+    "-McQphIADOZB8egm39LI" : {
+      "giaMon" : 30000,
+      "maDM" : "DA",
+      "tenMon" : "Blackberry Avocado and Arugula Salad",
+      "url" : "https://i.pinimg.com/474x/cc/45/81/cc4581a7b34618591224f0f3f2591683.jpg"
+    },
+    "-McQprVQpN6A04IpSLH3" : {
+      "giaMon" : 30000,
+      "maDM" : "DA",
+      "tenMon" : "Cranberry Blueberry Salad",
+      "url" : "https://i.pinimg.com/474x/bb/ca/6d/bbca6d4c461f6e1201c3cc9cfbbaca6d.jpg"
+    },
+    "-McQpziiai9GKaZFeW3x" : {
+      "giaMon" : 30000,
+      "maDM" : "DA",
+      "tenMon" : "Smoked Salmon Salad",
+      "url" : "https://i.pinimg.com/474x/25/7a/72/257a72e1b9e3e493c84c139022fb68b5.jpg"
+    },
+    "-McQqB-5As1zptHGzwD7" : {
+      "giaMon" : 30000,
+      "maDM" : "DA",
+      "tenMon" : "Lemony White Bean Salad with Prosciutto",
+      "url" : "https://i.pinimg.com/474x/be/29/93/be2993d5608c8fa8eaa7bb578d9d4129.jpg"
+    },
+    "-McQqoX0DkL1I0UAv66Y" : {
+      "giaMon" : 25000,
+      "maDM" : "DA",
+      "tenMon" : "Blueberry Lemon Cheesecake",
+      "url" : "https://i.pinimg.com/474x/8b/75/76/8b7576b9188fe7e1d893044571e69d4b.jpg"
+    },
+    "-McQrDNHIFRqh7s_xVAr" : {
+      "giaMon" : 25000,
+      "maDM" : "DA",
+      "tenMon" : "Strawberry Creamy Cupcake",
+      "url" : "https://i.pinimg.com/474x/2f/52/3e/2f523e46b3a2a8e1fc5a047088340954.jpg"
+    },
+    "-McQrNYufkuzvFTNsx-x" : {
+      "giaMon" : 25000,
+      "maDM" : "DA",
+      "tenMon" : "Apple Cheesecake Tacos",
+      "url" : "https://i.pinimg.com/474x/cc/27/11/cc2711c4d7e9daabdf82545449a22196.jpg"
+    },
+    "-McQrqPgL8aoDNn3PxOA" : {
+      "giaMon" : 25000,
+      "maDM" : "DA",
+      "tenMon" : "Low Carb Chocolate Lasagna Sugar-free Keto Dessert",
+      "url" : "https://i.pinimg.com/474x/2d/fa/45/2dfa455c4306295e2247907fc93a92af.jpg"
+    },
+    "-McQs22DXapN8ozAIkGb" : {
+      "giaMon" : 25000,
+      "maDM" : "DA",
+      "tenMon" : "Keto Raspberry Cheescake Bites",
+      "url" : "https://i.pinimg.com/474x/16/9f/6e/169f6e2b0fe548c2b336c664eb567902.jpg"
+    },
+    "-McQsVmLg7WUyXh9rdT7" : {
+      "giaMon" : 215000,
+      "maDM" : "CB",
+      "tenMon" : "Mc Donald's Fast Food Fries Inspo",
+      "url" : "https://i.pinimg.com/564x/ee/bf/dc/eebfdcc19b85d14e5cf65a7c716cba9b.jpg"
+    },
+    "-McQt-csO7LtClXNjrn9" : {
+      "giaMon" : 185000,
+      "maDM" : "CB",
+      "tenMon" : "Chase Hudson Party Sleep",
+      "url" : "https://i.pinimg.com/474x/d0/79/8b/d0798b5ed6ce4a2732fe0b050b6c525e.jpg"
+    },
+    "-McQtEyBvyOHxQzmC5K6" : {
+      "giaMon" : 150000,
+      "maDM" : "CB",
+      "tenMon" : "Tutto Per Caso Mc Donald's 2",
+      "url" : "https://i.pinimg.com/474x/28/56/09/2856097f6a35020723983dd6bb3d616c.jpg"
+    },
+    "-McQtd52SBPo1S8yW1vB" : {
+      "giaMon" : 135000,
+      "maDM" : "CB",
+      "tenMon" : "Combo Burger King for 2 people",
+      "url" : "https://i.pinimg.com/474x/14/78/98/1478980674232696bd3a08741c2d7520.jpg"
+    },
+    "-McQtr89Ol3w6_-ub69_" : {
+      "giaMon" : 175000,
+      "maDM" : "CB",
+      "tenMon" : "20 Spanish Tacos",
+      "url" : "https://i.pinimg.com/474x/63/6e/9c/636e9c3366c49d4ea660a779295eddec.jpg"
+    },
+    "-McQuBRfhgV1QJWp4rwe" : {
+      "giaMon" : 100000,
+      "maDM" : "CB",
+      "tenMon" : "Hearteando 12 nutella cakes",
+      "url" : "https://i.pinimg.com/474x/1d/48/d9/1d48d9cd7b4f4007dbbd4dc11291150f.jpg"
+    },
+    "-McQuQSMPsQH-pBgvVGI" : {
+      "giaMon" : 150000,
+      "maDM" : "CB",
+      "tenMon" : "Salmon Sushi Recipe",
+      "url" : "https://i.pinimg.com/474x/99/43/44/994344b337d75afab5bad468b82343c0.jpg"
+    },
+    "-McQuv2ZswcuT0ll7ZsP" : {
+      "giaMon" : 360000,
+      "maDM" : "CB",
+      "tenMon" : "6 People with Hamburgers and Fried Tomatos",
+      "url" : "https://i.pinimg.com/474x/03/e9/9b/03e99b823d24be1863af1ff9a6e18670.jpg"
+    },
+    "-McQvEIEs0gdKTCY7Zty" : {
+      "giaMon" : 200000,
+      "maDM" : "CB",
+      "tenMon" : "Lugares por Conocer Mo & Bangkok Moshi",
+      "url" : "https://i.pinimg.com/564x/05/9d/bc/059dbcb81b4ad468f29365ac2933e31b.jpg"
+    },
+    "-McQvWNlsH5YYpTkUwDN" : {
+      "giaMon" : 190000,
+      "maDM" : "CB",
+      "tenMon" : "Stuffed Crust Pizzas ",
+      "url" : "https://i.pinimg.com/564x/5c/c3/cf/5cc3cf7957ed2527d1ca0e4d7f9e0be0.jpg"
+    },
+    "-McQvpJUeLia2DmFQskb" : {
+      "giaMon" : 250000,
+      "maDM" : "CB",
+      "tenMon" : "4 People with Sushi",
+      "url" : "https://i.pinimg.com/564x/4f/b3/09/4fb309225993336ae0ae5b6693a3a3ac.jpg"
+    },
+    "-McQw48btarykaiEsuCw" : {
+      "giaMon" : 350000,
+      "maDM" : "CB",
+      "tenMon" : "Sushiss",
+      "url" : "https://i.pinimg.com/564x/af/9c/68/af9c686cae7c04da4696f3388ad4e556.jpg"
+    },
+    "-McQwRPlqJ0GlGdP005D" : {
+      "giaMon" : 100000,
+      "maDM" : "CB",
+      "tenMon" : "Movie Night Snack Board",
+      "url" : "https://i.pinimg.com/474x/7c/6f/d8/7c6fd808f39ea33312dc060b8811a591.jpg"
+    },
+    "-McQwnBy4s4WQnvSWcbg" : {
+      "giaMon" : 100000,
+      "maDM" : "CB",
+      "tenMon" : "Birthday Fruit Platter",
+      "url" : "https://i.pinimg.com/474x/6b/17/a6/6b17a6af6694de68de429d8bf3b5f09a.jpg"
+    },
+    "-McQwwSObqAR1NmQbXP5" : {
+      "giaMon" : 100000,
+      "maDM" : "CB",
+      "tenMon" : "Sheet Pan Snack Platter",
+      "url" : "https://i.pinimg.com/474x/1e/86/d3/1e86d35c119ac5860f8a289842748f07.jpg"
+    },
+    "-McQx3qZ4YfuJQhWNZFc" : {
+      "giaMon" : 150000,
+      "maDM" : "CB",
+      "tenMon" : "Chocolate Fondue Recipe",
+      "url" : "https://i.pinimg.com/474x/2a/a6/24/2aa624c32f4d65cc9544382fe06dc5c0.jpg"
+    }
+  },
+  "NhanVien" : {
+    "-McScrYXWzLw37UfngTa" : {
+      "chucVu" : "NhanVien",
+      "cmnd" : "1234",
+      "diaChi" : "Quan 9",
+      "gioiTinh" : "Nữ",
+      "hinhAnh" : "https://firebasestorage.googleapis.com/v0/b/rfra-85af4.appspot.com/o/FB_IMG_1614228176715.jpg?alt=media&token=5e366099-93d2-443b-a7b0-ebf3c6c1b108",
+      "hoTen" : "Phương",
+      "id" : "NV02",
+      "luong" : 6000,
+      "sdt" : "4562"
+    },
+    "-McScrY_3PlXiXhpVCl6" : {
+      "chucVu" : "NhanVien",
+      "cmnd" : "12345",
+      "diaChi" : "Quan 9",
+      "gioiTinh" : "Nữ",
+      "hinhAnh" : "https://firebasestorage.googleapis.com/v0/b/rfra-85af4.appspot.com/o/ch%C3%A1nh%20c%C6%B0%E1%BB%9Di.PNG?alt=media&token=3c93049c-2767-413a-9f98-c882cf17992d",
+      "hoTen" : "Nhi",
+      "id" : "NV03",
+      "luong" : 7000,
+      "sdt" : "4563"
+    },
+    "-McTOH5DbCP8iwOcUtEO" : {
+      "chucVu" : "NhanVien",
+      "cmnd" : "2465737",
+      "diaChi" : "hcm city\n",
+      "gioiTinh" : "Nam",
+      "hinhAnh" : "https://st.quantrimang.com/photos/image/2018/09/27/hinh-nen-dong-vat-de-thuong-29.jpg",
+      "hoTen" : "Tien Nguyen",
+      "id" : "NV01",
+      "luong" : 5000,
+      "sdt" : "0982427541"
+    },
+    "-McTOha25alxB_y0oE6w" : {
+      "chucVu" : "NhanVien",
+      "cmnd" : "3657842",
+      "diaChi" : "ha noi\n",
+      "gioiTinh" : "Nam",
+      "hinhAnh" : "https://mb.dkn.tv/wp-content/uploads/2016/01/thumbnail-24-700x366.jpg",
+      "hoTen" : "Nguyen Chanh",
+      "id" : "NV05",
+      "luong" : 9000,
+      "sdt" : "09054275523"
+    }
+  },
+  "User" : {
+    "1ZWezfHnRzdygA5nspQO2TldH1p2" : {
+      "email" : "nhi@gmail.com",
+      "name" : "Nhi",
+      "password" : "123456",
+      "phone" : "0908259937",
+      "position" : "admin"
+    }
+  },
+  "a" : 3
+}
