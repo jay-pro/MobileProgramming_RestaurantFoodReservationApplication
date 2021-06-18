@@ -69,7 +69,11 @@ public class QLBanAnActivity extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
+                if (BanAnAdapter.DongVuaBiXoa != -1 ) {
+                    arrayListBanAn.remove(BanAnAdapter.DongVuaBiXoa);
+                    banAnAdapter.notifyDataSetChanged();
+                    BanAnAdapter.DongVuaBiXoa = -1;
+                }
             }
 
             @Override

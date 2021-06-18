@@ -30,7 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class QLNhanVienActivity extends AppCompatActivity {
+public class QLNhanVienActivity extends AppCompatActivity{
     Button btnThem;
     ArrayList<Nhan_Vien> arrayListNV = new ArrayList<>();
     NhanVienAdapter nhanvienAdapter;
@@ -67,7 +67,7 @@ public class QLNhanVienActivity extends AppCompatActivity {
 //        Nhan_Vien nv2 = new Nhan_Vien("NV02","NhanVien","Phương","Nữ","1234","4562","Quan 9",6000,"");
 //        Nhan_Vien nv3 = new Nhan_Vien("NV03","NhanVien","Nhi","Nữ","12345","4563","Quan 9",7000,"");
 //        Nhan_Vien nv4 = new Nhan_Vien("NV04","NhanVien","Chánh","Nam","123456","4564","Quan 9",8000,"");
-
+//
 //        mDatabase.child("NhanVien").push().setValue(nv1);
 //        mDatabase.child("NhanVien").push().setValue(nv2);
 //        mDatabase.child("NhanVien").push().setValue(nv3);
@@ -91,7 +91,11 @@ public class QLNhanVienActivity extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
+                if (NhanVienAdapter.DongVuaBiXoa != -1 ) {
+                    arrayListNV.remove(NhanVienAdapter.DongVuaBiXoa);
+                    nhanvienAdapter.notifyDataSetChanged();
+                    NhanVienAdapter.DongVuaBiXoa = -1;
+                }
             }
 
             @Override
@@ -183,4 +187,6 @@ public class QLNhanVienActivity extends AppCompatActivity {
         dialog.show();
 //            dialog.getWindow().setAttributes(lp);
     }
+
+
 }
