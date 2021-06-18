@@ -118,7 +118,7 @@ public class DatMonActivity extends AppCompatActivity /*implements NavigationVie
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dm2, R.id.nav_dm1, R.id.nav_dm3, R.id.nav_qlm)
+                R.id.nav_dm2, R.id.nav_dm1, R.id.nav_dm3)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

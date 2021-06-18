@@ -132,6 +132,8 @@ public class QLNhanVienActivity extends AppCompatActivity{
 //        arrayListNV.add(new Nhan_Vien("NV04","NhanVien","Chánh","Nam","123456","4564","Quan 9",8000,""));
         recyclerViewNV.setAdapter(nhanvienAdapter);
 
+
+
     }
     private  void  DialogAdd() {
         Dialog dialog = new Dialog(this);
