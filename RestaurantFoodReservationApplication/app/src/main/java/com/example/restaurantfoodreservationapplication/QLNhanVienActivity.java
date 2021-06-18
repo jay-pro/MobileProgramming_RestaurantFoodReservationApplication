@@ -78,6 +78,7 @@ public class QLNhanVienActivity extends AppCompatActivity {
         mDatabase.child("NhanVien").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Toast.makeText(QLNhanVienActivity.this, snapshot.getKey().toString()+"\n", Toast.LENGTH_SHORT).show();
                 Nhan_Vien nhan_vien = snapshot.getValue(Nhan_Vien.class);
                 arrayListNV.add(nhan_vien);
                 nhanvienAdapter.notifyDataSetChanged();
@@ -103,6 +104,9 @@ public class QLNhanVienActivity extends AppCompatActivity {
 
             }
         });
+    }
+    private void DialogXacNhanXoa(){
+
     }
     public void initView()
     {
@@ -145,6 +149,13 @@ public class QLNhanVienActivity extends AppCompatActivity {
         btnDongY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(edtMaNV.getText().toString().trim().length() == 0 ||  edtChucVu.getText().toString().trim().length() == 0 ||
+                        edtTenNV.getText().toString().trim().length() == 0|| edtGioiTinh.getText().toString().trim().length() == 0 ||
+                edtCMND.getText().toString().trim().length() == 0 || edtSDT.getText().toString().trim().length() == 0 || edtDiaChi.getText().toString().trim().length() == 0 || edtLuong.getText().toString().trim().length() == 0)
+                {
+                    Toast.makeText(QLNhanVienActivity.this, "Vui lòng nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Nhan_Vien nv = new Nhan_Vien(edtMaNV.getText().toString(), edtChucVu.getText().toString(),edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,"");
                 mDatabase.child("NhanVien").push().setValue(nv, new DatabaseReference.CompletionListener() {
                     @Override

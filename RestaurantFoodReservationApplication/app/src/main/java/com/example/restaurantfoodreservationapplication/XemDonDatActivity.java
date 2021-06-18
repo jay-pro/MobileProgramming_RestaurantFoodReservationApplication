@@ -183,7 +183,7 @@ public class XemDonDatActivity extends AppCompatActivity {
                 // mDatabase.child("soLuong").setValue(soluong);
                 //String key = mDatabase.push().getKey();
                 // Query query =  mDatabase.orderByChild("tenMon").equalTo(dsMonDat.get(position).getTenMon());
-                Query query = mDatabase.orderByChild("maBan").equalTo(MaBan);//.orderByChild("tenMon").equalTo(dsMonDat.get(position).getTenMon());
+                Query query = mDatabase.    orderByChild("maBan").equalTo(MaBan);//.orderByChild("tenMon").equalTo(dsMonDat.get(position).getTenMon());
                 // Query query = query1.orderByChild("maBan").equalTo(MaBan);
                 Query query1 = query.getRef().orderByChild("tenMon").equalTo(dsMonDat.get(position).getTenMon());
                 Query query2 = mDatabase.child("DonDat"+MaBan).orderByChild("tenMon").equalTo(dsMonDat.get(position).getTenMon());
