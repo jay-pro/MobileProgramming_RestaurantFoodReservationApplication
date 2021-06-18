@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/imageViewNhanVien"
-        android:layout_width="101dp"
-        android:layout_height="82dp"
+        android:layout_width="100dp"
+        android:layout_height="85dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@mipmap/ic_launcher"
@@ -29,13 +29,13 @@
 
     <TextView
         android:id="@+id/txtTenNhanVien"
-        android:textSize="24sp"
-        android:textColor="#187FAE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Tên NV"
+        android:textColor="#187FAE"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewNhanVien"
         app:layout_constraintTop_toBottomOf="@+id/txtMaNhanVien" />
 

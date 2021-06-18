@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -68,11 +67,11 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder> 
         public ViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            txtMaBan = (TextView) itemView.findViewById(R.id.txtTenNhanVien);
-            txtTenBan = (TextView) itemView.findViewById(R.id.txtMaNhanVien);
+            txtMaBan = (TextView) itemView.findViewById(R.id.txtMaBanAn);
+            txtTenBan = (TextView) itemView.findViewById(R.id.txtTenBanAn);
             txtSoLuong = (TextView) itemView.findViewById(R.id.txtSoLuongCho);
 
-            btnsua = (Button) itemView.findViewById(R.id.btnSuaNV);
+            btnsua = (Button) itemView.findViewById(R.id.btnSuaDongBanAn);
             btnxoa = (Button) itemView.findViewById(R.id.btnXoaBan);
             btnsua.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -185,7 +184,7 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder> 
 
                 }
             });
-            alertDialog.setNegativeButton("Huy", new DialogInterface.OnClickListener() {
+            alertDialog.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
 
