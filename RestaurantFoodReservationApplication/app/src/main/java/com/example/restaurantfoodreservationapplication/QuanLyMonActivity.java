@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -49,6 +50,7 @@ public class QuanLyMonActivity extends AppCompatActivity {
     //DatabaseReference monan_id;
     //DatabaseReference ref;
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+    public static String ten_mon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -70,74 +72,7 @@ public class QuanLyMonActivity extends AppCompatActivity {
         });
 
         //Xóa món ăn
-        /*Intent intent_xoa = getIntent();
-        String key = intent_xoa.getStringExtra("key");
-        ref = FirebaseDatabase.getInstance().getReference().child("MonAn");
-        Query query_xoa = ref.orderByKey().equalTo(key);
-        ValueEventListener eventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    for(DataSnapshot ds:snapshot.getChildren()){
-                        code_res.setText(ds.child("giaMon").getValue(String.class));
-                        name_res.setText(ds.child("tenMon").getValue(String.class));
-                        price_res.setText(ds.child("giaMon").getValue(String.class));
-                        purl_res.setText(ds.child("purl").getValue(String.class));
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        };
-        query_xoa.addListenerForSingleValueEvent(eventListener);
-        delete_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deletemon(key);
-            }
-        });
-        *//*delete_btn.setOnClickListener(v -> {
-            deletewithid();
-        });*//*
-
-        //Sua mon an
-        update_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
-
         delete_btn.setOnClickListener(v -> {
-            //Cách 1: Nhập 4 thông tin của món rồi nhấn Xóa
-            /*DatabaseReference xoa_giaMon = FirebaseDatabase.getInstance().getReference().getRoot().child("MonAn").child(price_res.toString());
-            xoa_giaMon.setValue(null);
-            DatabaseReference xoa_tenMon = FirebaseDatabase.getInstance().getReference().getRoot().child("MonAn").child(name_res.toString());
-            xoa_giaMon.setValue(null);
-            DatabaseReference xoa_maMon = FirebaseDatabase.getInstance().getReference().getRoot().child("MonAn").child(code_res.toString());
-            xoa_giaMon.setValue(null);
-            DatabaseReference xoa_purl = FirebaseDatabase.getInstance().getReference().getRoot().child("MonAn").child(purl_res.toString());
-            xoa_giaMon.setValue(null);*/
-            //Cách 2: Nhập id của món rồi nhấn Xóa
-            //database.getReference("MonAn").child(id_res.toString()).removeValue();
-            //Cách 3:
-            /*ProgressDialog dialog = new ProgressDialog(this);
-            dialog.setTitle("Deleting");
-            dialog.show();
-            flagdelete = true;
-            if(flagdelete == true){
-                Intent intent = new Intent(QuanLyMonActivity.this, DatMonActivity.class);
-                DatabaseReference dbr = FirebaseDatabase.getInstance().getReference().child("MonAn");
-                Mon_An mon_an = new Mon_An(Double.parseDouble(price_res.getText().toString()),code_res.getText().toString(),name_res.getText().toString(),purl_res.getText().toString());
-                dbr.push().setValue(mon_an);//null
-                flagadd=false;
-                dialog.dismiss();
-                dialog.setMessage("Added Successfully");
-                startActivity(intent);
-            }*/
             Query query = database.child("MonAn").orderByChild("tenMon").equalTo(name_res.getText().toString());
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -153,25 +88,33 @@ public class QuanLyMonActivity extends AppCompatActivity {
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
-            });//Sua lai ban cho phu hop
-
+            });
+            Toast.makeText(this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
         });
 
         update_btn.setOnClickListener(v -> {
-            ProgressDialog dialog = new ProgressDialog(this);
-            dialog.setTitle("Updating");
-            dialog.show();
-            flagupdate = true;
-            if(flagupdate == true){
-                Intent intent = new Intent(QuanLyMonActivity.this, DatMonActivity.class);
-                DatabaseReference dbr = FirebaseDatabase.getInstance().getReference().child("MonAn");
-                Mon_An mon_an = new Mon_An(Double.parseDouble(price_res.getText().toString()),code_res.getText().toString(),name_res.getText().toString(),purl_res.getText().toString());
-                dbr.push().setValue(mon_an);
-                flagupdate=false;
-                dialog.dismiss();
-                dialog.setMessage("Updated Successfully");
-                startActivity(intent);
-            }
+            /*Query query = database.child("MonAn").orderByChild("tenMon").equalTo(name_res.getText().toString());
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot singleSnapshot : snapshot.getChildren())
+                    {
+                        Mon_An mon_an= singleSnapshot.getValue(Mon_An.class);
+                        database.child("MonAn").child(singleSnapshot.getKey()).removeValue();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });*/
+            ten_mon = name_res.getText().toString();
+
+
+
+            Intent intent = new Intent(QuanLyMonActivity.this, SuaMonActivity.class);
+            startActivity(intent);
         });
 
         //show back arrow
@@ -181,12 +124,6 @@ public class QuanLyMonActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(v -> finish());
 
     }
-
-    /*private void deletemon(String key) {
-        ref = FirebaseDatabase.getInstance().getReference("MonAn").child(key);
-        ref.removeValue();
-        Toast.makeText(getApplicationContext(),"Successfully Deleted", Toast.LENGTH_LONG).show();
-    }*/
 
     private void addtofirebase(){
         ProgressDialog dialog = new ProgressDialog(this);
@@ -204,16 +141,6 @@ public class QuanLyMonActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
-    /*private void deletewithid(){
-        ref.child(id_res.toString()).removeValue();
-        Toast.makeText(this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(v -> finish());
-    }*/
-
 
 
 }

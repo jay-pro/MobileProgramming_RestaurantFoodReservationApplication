@@ -20,6 +20,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantfoodreservationapplication.Class.Ban_An;
+import com.example.restaurantfoodreservationapplication.Class.Mon_An;
 import com.example.restaurantfoodreservationapplication.Class.Nhan_Vien;
 import com.example.restaurantfoodreservationapplication.Class.Thanh_Toan;
 import com.google.firebase.database.ChildEventListener;
@@ -42,6 +43,7 @@ import static com.example.restaurantfoodreservationapplication.DatMonActivity.Ma
 public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHolder> {
     ArrayList<Nhan_Vien> dataNhanViens;
     Context context;
+    public static int DongVuaBiXoa = -1;
     private DatabaseReference mDatabase;
     public NhanVienAdapter(ArrayList<Nhan_Vien> dataNhanViens, Context context) {
         this.dataNhanViens = dataNhanViens;
@@ -133,24 +135,23 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
             alertDialog.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Query queryHoaDon = FirebaseDatabase.getInstance().getReference().child("NhanVien");
-                    queryHoaDon.addListenerForSingleValueEvent(new ValueEventListener() {
+                    mDatabase = FirebaseDatabase.getInstance().getReference();
+                    Query query = mDatabase.child("NhanVien").orderByChild("id").equalTo(dataNhanViens.get(getAdapterPosition()).getID().toString());
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot singleSnapshot : snapshot.getChildren())
+                            {
 
-                            mDatabase.child("DonBan" + MaBan).removeValue();
-                            mDatabase = FirebaseDatabase.getInstance().getReference();
-                            dataNhanViens.get(getAdapterPosition()).
-
-
-                            Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
+                                mDatabase.child("NhanVien").child(singleSnapshot.getKey()).removeValue();
+                                DongVuaBiXoa = getAdapterPosition();
+                            }
                         }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
                         }
-                    });
+                    });//Sua lai ban cho phu hop
 
                 }
             });

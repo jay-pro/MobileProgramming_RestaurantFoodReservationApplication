@@ -16,6 +16,7 @@
         tools:layout_editor_absoluteX="263dp">
 
         <TextView
+            android:id="@+id/txtThemBanAn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -59,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:padding="5dp"
             android:weightSum="10">
 
             <Button
@@ -68,12 +70,13 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="5"
 
-                android:text="Xác nhận" />
+                android:text="Thêm" />
 
             <Button
                 android:id="@+id/buttonHuyThemBan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="5"
 
