@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtMaNhanVien" />
 
     <Button
-        android:id="@+id/btnSuaNV"
+        android:id="@+id/btnSuaBan"
         android:layout_width="162dp"
         android:layout_height="44dp"
         android:layout_marginStart="36dp"
@@ -58,7 +58,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="152dp"
         android:text="Xóa"
-        app:layout_constraintStart_toEndOf="@+id/btnSuaNV"
+        app:layout_constraintStart_toEndOf="@+id/btnSuaBan"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

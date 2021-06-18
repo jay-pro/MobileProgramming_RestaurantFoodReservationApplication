@@ -28,12 +28,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder>{
+public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder> {
 
     ArrayList<Ban_An> dataBanAns;
     Context context;
     public static int DongVuaBiXoa = -1;
     private DatabaseReference mDatabase;
+
     public BanAnAdapter(ArrayList<Ban_An> dataBanAns, Context context) {
         this.dataBanAns = dataBanAns;
         this.context = context;
@@ -43,16 +44,16 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder>{
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View itemView = layoutInflater.inflate(R.layout.row_banan,parent,false);
+        View itemView = layoutInflater.inflate(R.layout.row_banan, parent, false);
 
         return new ViewHolder((itemView));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtMaBan.setText("Mã bàn: " +dataBanAns.get(position).getMaBan());
+        holder.txtMaBan.setText("Mã bàn: " + dataBanAns.get(position).getMaBan());
         holder.txtTenBan.setText("Tên bàn: " + dataBanAns.get(position).getTenBan());
-        holder.txtSoLuong.setText("Số lượng chỗ: " + dataBanAns.get(position).getSoCho()+"");
+        holder.txtSoLuong.setText("Số lượng chỗ: " + dataBanAns.get(position).getSoCho() + "");
     }
 
     @Override
@@ -93,7 +94,7 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder>{
             });
         }
 
-        private  void  DialogEdit() {
+        private void DialogEdit() {
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.dialog_thembanan);
@@ -109,15 +110,18 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder>{
             texviewEdit.setText("Sửa bàn ăn");
             edtMaBan.setText(dataBanAns.get(getAdapterPosition()).getMaBan().toString());
             edtTenBan.setText(dataBanAns.get(getAdapterPosition()).getTenBan().toString());
-            edtSoCho.setText(dataBanAns.get(getAdapterPosition()).getSoCho()+"", TextView.BufferType.EDITABLE);
+            edtSoCho.setText(dataBanAns.get(getAdapterPosition()).getSoCho() + "", TextView.BufferType.EDITABLE);
             btnDongY.setText("Ok");
             btnHuy.setText("Hủy");
             btnDongY.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(edtMaBan.getText().toString().trim().length() == 0 || edtTenBan .getText().toString().trim().length() == 0 || edtSoCho.getText().toString().length() == 0)
-                    {
+                    if (edtMaBan.getText().toString().trim().length() == 0 || edtTenBan.getText().toString().trim().length() == 0 || edtSoCho.getText().toString().length() == 0) {
                         Toast.makeText(context, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (Integer.parseInt(edtSoCho.getText().toString()) < 0) {
+                        Toast.makeText(context, "Số chỗ phải lớn hơn 0", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -125,9 +129,9 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder>{
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for(DataSnapshot ds : snapshot.getChildren()){
+                            for (DataSnapshot ds : snapshot.getChildren()) {
                                 HashMap hashMap = new HashMap();
-                                Ban_An ban_an = new Ban_An(edtMaBan.getText().toString(),edtTenBan.getText().toString(),Integer.parseInt(edtSoCho.getText().toString()));
+                                Ban_An ban_an = new Ban_An(edtMaBan.getText().toString(), edtTenBan.getText().toString(), Integer.parseInt(edtSoCho.getText().toString()));
                                 hashMap.put(ds.getKey(), ban_an);
                                 mDatabase.child("BanAn").updateChildren(hashMap);
                                 Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
@@ -153,8 +157,7 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder>{
 
         }
 
-        private void ShowdialogXacNhan()
-        {
+        private void ShowdialogXacNhan() {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
             alertDialog.setTitle("");
             alertDialog.setIcon(R.mipmap.ic_launcher);
@@ -168,8 +171,7 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder>{
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for (DataSnapshot singleSnapshot : snapshot.getChildren())
-                            {
+                            for (DataSnapshot singleSnapshot : snapshot.getChildren()) {
 
                                 mDatabase.child("BanAn").child(singleSnapshot.getKey()).removeValue();
                                 DongVuaBiXoa = getAdapterPosition();
@@ -198,7 +200,6 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder>{
         super.onAttachedToRecyclerView(recyclerView);
         context = recyclerView.getContext();
     }
-
 
 
 }

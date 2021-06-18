@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
 import static com.example.restaurantfoodreservationapplication.DatMonActivity.MaBan;
@@ -102,6 +104,13 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
                 public void onClick(View v) {
 
                     ShowdialogXacNhan();
+                }
+            });
+            btnsua.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
+                    DialogEdit();
                 }
             });
 //            itemView.setOnClickListener(new View.OnClickListener() {
@@ -210,7 +219,84 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
             dialog.show();
 //            dialog.getWindow().setAttributes(lp);
         }
+        private  void  DialogEdit() {
+            Dialog dialog = new Dialog(context);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.dialog_themnhanvien);
+            dialog.setCanceledOnTouchOutside(false); // nhap ra ngoai khong tat dialog
+            // ánh xạ
+//            TextView txtSuaNV = (TextView) dialog.findViewById(R.id.txtThemNhanVien) ;
+//            EditText edtMaNV = (EditText) dialog.findViewById(R.id.edtMaNV);
+//            EditText edtChucVu = (EditText) dialog.findViewById(R.id.edtChucVu);
+//            EditText edtTenNV = (EditText) dialog.findViewById(R.id.edtHoTen);
+//            EditText edtGioiTinh = (EditText) dialog.findViewById(R.id.edtGioiTinh);
+//            EditText edtCMND = (EditText) dialog.findViewById(R.id.edtCMND);
+//            EditText edtSDT = (EditText) dialog.findViewById(R.id.edtSDT);
+//            EditText edtDiaChi = (EditText) dialog.findViewById(R.id.edtDiaChi);
+//            EditText edtLuong = (EditText) dialog.findViewById(R.id.edtLuong);
+//            Button btnDongY = (Button) dialog.findViewById(R.id.buttonDongYThemNV);
+//            Button btnHuy = (Button) dialog.findViewById(R.id.buttonHuyThemNV);
+//
+//            edtMaNV.setEnabled(false);
+//            txtSuaNV.setText("Sửa Nhân viên");
+//
+//            edtMaNV.setText(dataNhanViens.get(getAdapterPosition()).getID().toString());
+//            edtChucVu.setText(dataNhanViens.get(getAdapterPosition()).getChucVu().toString());
+//            edtTenNV.setText(dataNhanViens.get(getAdapterPosition()).getHoTen().toString());
+//            edtGioiTinh.setText(dataNhanViens.get(getAdapterPosition()).getGioiTinh().toString());
+//            edtCMND.setText(dataNhanViens.get(getAdapterPosition()).getCMND().toString(),TextView.BufferType.EDITABLE);
+//            edtSDT.setText(dataNhanViens.get(getAdapterPosition()).getSDT().toString(),TextView.BufferType.EDITABLE);
+//            edtDiaChi.setText(dataNhanViens.get(getAdapterPosition()).getID().toString());
+//            edtLuong.setText(dataNhanViens.get(getAdapterPosition()).getID().toString(),TextView.BufferType.EDITABLE);
+//
+//            btnDongY.setText("Ok");
+//
+//
+//            btnDongY.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if(edtMaNV.getText().toString().trim().length() == 0 ||  edtChucVu.getText().toString().trim().length() == 0 ||
+//                            edtTenNV.getText().toString().trim().length() == 0|| edtGioiTinh.getText().toString().trim().length() == 0 ||
+//                            edtCMND.getText().toString().trim().length() == 0 || edtSDT.getText().toString().trim().length() == 0 || edtDiaChi.getText().toString().trim().length() == 0 || edtLuong.getText().toString().trim().length() == 0)
+//                    {
+//                        Toast.makeText(context, "Vui lòng nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+//                    mDatabase = FirebaseDatabase.getInstance().getReference();
+//                    Query query = mDatabase.child("NhanVien").orderByChild("id").equalTo(edtMaNV.getText().toString());
+//                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                            for(DataSnapshot ds : snapshot.getChildren()){
+//                                HashMap hashMap = new HashMap();
+//                                Nhan_Vien nv = new Nhan_Vien(edtMaNV.getText().toString(), edtChucVu.getText().toString(),edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,dataNhanViens.get(getAdapterPosition()).getHinhAnh().toString());
+//                                hashMap.put(ds.getKey(), nv);
+//                                mDatabase.child("NhanVien").updateChildren(hashMap);
+//                                Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
+//                                dialog.cancel();
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        }
+//                    });
+//
+//                }
+//            });
 
+
+
+//            btnHuy.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    dialog.cancel();
+//                }
+//            });
+            dialog.show();
+//            dialog.getWindow().setAttributes(lp);
+        }
 
     }
 }

@@ -78,7 +78,7 @@ public class QLNhanVienActivity extends AppCompatActivity{
         mDatabase.child("NhanVien").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Toast.makeText(QLNhanVienActivity.this, snapshot.getKey().toString()+"\n", Toast.LENGTH_SHORT).show();
+
                 Nhan_Vien nhan_vien = snapshot.getValue(Nhan_Vien.class);
                 arrayListNV.add(nhan_vien);
                 nhanvienAdapter.notifyDataSetChanged();
