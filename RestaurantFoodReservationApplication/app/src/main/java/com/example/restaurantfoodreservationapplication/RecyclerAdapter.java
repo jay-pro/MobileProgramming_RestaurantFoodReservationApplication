@@ -54,6 +54,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.DataVi
         holder.tvGiaMon.setText((int) monan.getGiaMon()+"");
         holder.tvMaDM.setText(monan.getMaDM().toString());
         holder.tvTenMon.setText(monan.getTenMon());
+
         Glide.with(context).load(dsMon.get(position).getUrl()).into(holder.image);
       /*  holder.btnDatMon.setOnClickListener(new View.OnClickListener() {
           @Override

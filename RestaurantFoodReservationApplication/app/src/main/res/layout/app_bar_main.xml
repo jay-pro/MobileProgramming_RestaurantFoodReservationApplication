@@ -35,13 +35,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Xem đơn gọi món"
-            app:backgroundTint="#3BDCCD" />
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff" />
 
         <Button
             android:id="@+id/btnThanhToan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#3BDCCD"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
             android:text="Thanh toan" />
 
     </com.google.android.material.appbar.AppBarLayout>

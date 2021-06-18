@@ -119,6 +119,11 @@ public class QLBanAnActivity extends AppCompatActivity {
         btnDongY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(edtMaBan.getText().toString().trim().length() == 0 || edtTenBan .getText().toString().trim().length() == 0 || edtSoCho.getText().toString().length() == 0)
+                {
+                    Toast.makeText(QLBanAnActivity.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Ban_An ban_an = new Ban_An(edtMaBan.getText().toString(), edtTenBan.getText().toString(), Integer.parseInt(edtSoCho.getText().toString()) );
                 mDatabase.child("BanAn").push().setValue(ban_an, new DatabaseReference.CompletionListener() {
                     @Override
