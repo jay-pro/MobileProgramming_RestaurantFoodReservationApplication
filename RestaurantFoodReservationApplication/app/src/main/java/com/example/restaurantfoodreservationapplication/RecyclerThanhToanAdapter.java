@@ -48,7 +48,7 @@ public class RecyclerThanhToanAdapter extends RecyclerView.Adapter<RecyclerThanh
         holder.tvTenMon.setText(CTHoaDon.getTenMon());
         holder.tvSoLuong.setText(String.valueOf(CTHoaDon.getSoLuong()));
         holder.tvThanhTien.setText(String.valueOf(CTHoaDon.getThanhTien()));
-        //holder.tvMaBan.setText(CTHoaDon.getMaBan());
+//        holder.tvMaBan.setText(CTHoaDon.getMaBan());
         Glide.with(context).load(dsHoaDon.get(position).getUrl()).into(holder.imgHinh);
 
     }
@@ -67,7 +67,7 @@ public class RecyclerThanhToanAdapter extends RecyclerView.Adapter<RecyclerThanh
         public DataViewHolder(View itemView, RecyclerThanhToanAdapter.OnItemClickListener listener) {
             super(itemView);
             tvTenMon = (TextView) itemView.findViewById(R.id.textMaBan);
-           // tvMaBan = (TextView) itemView.findViewById(R.id.textviewMaBan);
+           // tvMaBan = (TextView) itemView.findViewById(R.id.tvMaBan);
             tvSoLuong = (TextView) itemView.findViewById(R.id.textTongTien);
             tvThanhTien = (TextView) itemView.findViewById(R.id.textViewThanhTien);
 

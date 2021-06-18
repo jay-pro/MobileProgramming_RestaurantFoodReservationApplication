@@ -1,55 +1,88 @@
 package com.example.restaurantfoodreservationapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.Toast;
+
+import com.example.restaurantfoodreservationapplication.Class.Ban_An;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 import static com.example.restaurantfoodreservationapplication.DatMonActivity.MaBan;
 
 public class DSBanActivity extends AppCompatActivity {
-    Button btnBan1, btnBan2, btnBan3, btnBan4, btnBan5, btnBan6, btnBan7, btnBan8, btnBan9;
-    ArrayList<Button> arrayBtn;
+    RecyclerView recycler;
+    RecyclerBanAdapter recyclerAdapter;
+    ArrayList<Ban_An> dsBan;
+    Button btnQuayLui;
+    // ArrayList<Don_Dat_1_Ban> dsMonDatCuaBan;
+    DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_dsban);
-        AnhXa();
-        arrayBtn = new ArrayList<Button>();  //khởi tạo mảng lưu các image button
-        arrayBtn.add(btnBan1); arrayBtn.add(btnBan2); arrayBtn.add(btnBan3);
-        arrayBtn.add(btnBan4); arrayBtn.add(btnBan5); arrayBtn.add(btnBan6);
-        arrayBtn.add(btnBan7); arrayBtn.add(btnBan8); arrayBtn.add(btnBan9);
+        //setContentView(R.layout.item_dsban);
+        setContentView(R.layout.recyclerview_ban);
+        MaBan = "";
+        btnQuayLui = (Button) findViewById(R.id.btnQuayLui);
 
-        //int i =0;
-        for(int i = 0; i<arrayBtn.size(); i++) {
-            int finalI = i;
-            arrayBtn.get(finalI).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    MaBan = String.format("%d", finalI + 1);
-                    Intent intent = new Intent(DSBanActivity.this, DatMonActivity.class);
-                    startActivity(intent);
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("BanAn");
+        recycler = (RecyclerView) findViewById(R.id.recycler_ban);
+        // DatabaseReference ref = mDatabase.child("MonAn");
+
+        recycler.setLayoutManager(new GridLayoutManager(this, 3));
+        //recycler.setLayoutManager(layoutManager);
+        recycler.setHasFixedSize(true);
+        // Query MonAnquery = ref.equalTo("CB001");
+        // dsMonDat = new ArrayList<>();
+        dsBan = new ArrayList<>();
+
+        //array.add(new Mon_An( "","","",12));
+        recyclerAdapter = new RecyclerBanAdapter(dsBan, this);
+        recycler.setAdapter(recyclerAdapter);
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                {
+                    for(DataSnapshot singleSnapshot : snapshot.getChildren()){
+                        Ban_An ban_an = singleSnapshot.getValue(Ban_An.class);
+                        dsBan.add(ban_an);
+                    }
+                    recyclerAdapter.notifyDataSetChanged();
                 }
-            });
-        }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        recyclerAdapter.setOnItemClickListener(new RecyclerBanAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                MaBan = dsBan.get(position).getMaBan();
+                Intent intent = new Intent(DSBanActivity.this, DatMonActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnQuayLui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DSBanActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-    public void AnhXa() {
-        btnBan1 = (Button) findViewById(R.id.btnBan1);
-        btnBan2 = (Button) findViewById(R.id.btnBan2);
-        btnBan3 = (Button) findViewById(R.id.btnBan3);
-        btnBan4 = (Button) findViewById(R.id.btnBan4);
-        btnBan5 = (Button) findViewById(R.id.btnBan5);
-        btnBan6 = (Button) findViewById(R.id.btnBan6);
-        btnBan7 = (Button) findViewById(R.id.btnBan7);
-        btnBan8 = (Button) findViewById(R.id.btnBan8);
-        btnBan9 = (Button) findViewById(R.id.btnBan9);
-    }
+
 }
