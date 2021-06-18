@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.example.restaurantfoodreservationapplication.DatMonActivity.MaBan;
+import static com.example.restaurantfoodreservationapplication.RecyclerDonDatAdapter.Xoa;
 import static com.example.restaurantfoodreservationapplication.RecyclerDonDatAdapter.soluong;
 
 public class XemDonDatActivity extends AppCompatActivity {
@@ -42,6 +43,7 @@ public class XemDonDatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_xem_don_dat);
+        Xoa=false;
         setContentView(R.layout.recycler_chitietdondat);
         imgGiamSL = (ImageView) findViewById(R.id.imgGiamSL);
         imgTangSL = (ImageView) findViewById(R.id.imgTangSL);
@@ -207,6 +209,12 @@ public class XemDonDatActivity extends AppCompatActivity {
                             mDatabase.child("DonDat"+MaBan).updateChildren(childUpdates);
                             //Don_Dat_1_Ban dondat = singleSnapshot.getValue(Don_Dat_1_Ban.class);
                             // dsMonDat.add(ctdondat);
+                            if(Xoa = true)
+                            {
+                                mDatabase.child("DonDat"+MaBan).child(singleSnapshot.getKey()).removeValue();
+                                Xoa=false;
+                            }
+
                         }
                         recyclerAdapter.notifyDataSetChanged();
                     }

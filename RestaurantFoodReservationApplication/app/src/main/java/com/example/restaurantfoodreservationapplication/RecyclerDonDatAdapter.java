@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,7 @@ import java.util.List;
 public class RecyclerDonDatAdapter extends RecyclerView.Adapter<RecyclerDonDatAdapter.DataViewHolder>{
     private List<Chi_Tiet_Don_Dat> dsDonDat;
     private Context context;
+    public static boolean Xoa = false;
     private RecyclerDonDatAdapter.OnItemClickListener Listener;
     public static int soluong;
     public  interface OnItemClickListener{
@@ -69,11 +71,28 @@ public class RecyclerDonDatAdapter extends RecyclerView.Adapter<RecyclerDonDatAd
             imgTangSL = (ImageView) itemView.findViewById(R.id.imgTangSL);
             imgGiamSL = (ImageView) itemView.findViewById(R.id.imgGiamSL);
             imgHinh = (ImageView) itemView.findViewById(R.id.img);
+            imgHinh.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if(listener!=null)
+                    {
+                        int position = getAdapterPosition();
+                        if (position!= RecyclerView.NO_POSITION){
+                            Xoa=true;
+
+                           // dsDonDat.remove(dsDonDat.get(position));
+                            listener.onItemClick(position);
+                        }
+                    }
+                    return false;
+                }
+            });
             imgTangSL.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(listener!=null)
                     {
+                        Xoa = false;
                         int position = getAdapterPosition();
                         if (position!= RecyclerView.NO_POSITION){
                             soluong = dsDonDat.get(position).getSoLuong();  //
@@ -94,11 +113,14 @@ public class RecyclerDonDatAdapter extends RecyclerView.Adapter<RecyclerDonDatAd
                 public void onClick(View v) {
                     if(listener!=null)
                     {
+                        Xoa = false;
                         int position = getAdapterPosition();
                         if (position!= RecyclerView.NO_POSITION){
                             soluong = dsDonDat.get(position).getSoLuong();  //
                             soluong = soluong-1;  //
-                            dsDonDat.get(position).setSoLuong(soluong);
+                            if(soluong<=0) Toast.makeText(context, "So luong khong the be hon 0", Toast.LENGTH_SHORT).show();
+                           else {
+                            dsDonDat.get(position).setSoLuong(soluong);}
                             listener.onItemClick(position);
 
                         }
