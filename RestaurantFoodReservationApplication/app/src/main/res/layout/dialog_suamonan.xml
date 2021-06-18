@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/qlm_background"
+    tools:context=".SuaMonActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TextView"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Chỉnh sửa thông tin món ăn"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            android:textSize="24sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Nhập mã món ăn"
+                android:maxLines="2"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="20dp"
+                android:background="#e6c7d1"
+                android:id="@+id/code_up_res"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Nhập tên món ăn"
+                android:maxLines="2"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="20dp"
+                android:background="#e6c7d1"
+                android:layout_marginTop="8dp"
+                android:id="@+id/name_up_res"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Nhập giá món ăn"
+                android:maxLines="2"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:background="#e6c7d1"
+                android:id="@+id/price_up_res"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Nhập link ảnh món ăn"
+                android:maxLines="2"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:background="#e6c7d1"
+                android:id="@+id/purl_up_res"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/update_up_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cập nhật món"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:background="#9932CC"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
