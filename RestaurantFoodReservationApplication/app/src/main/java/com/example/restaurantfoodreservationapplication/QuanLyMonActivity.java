@@ -39,6 +39,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
+import static com.example.restaurantfoodreservationapplication.DatMonActivity.MaBan;
+
 public class QuanLyMonActivity extends AppCompatActivity {
     Toolbar toolbar;
     Button add_btn, update_btn, delete_btn;
@@ -46,7 +48,7 @@ public class QuanLyMonActivity extends AppCompatActivity {
     boolean flagadd = false, flagupdate = false, flagdelete = false;
     //DatabaseReference monan_id;
     //DatabaseReference ref;
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -122,7 +124,7 @@ public class QuanLyMonActivity extends AppCompatActivity {
             //Cách 2: Nhập id của món rồi nhấn Xóa
             //database.getReference("MonAn").child(id_res.toString()).removeValue();
             //Cách 3:
-            ProgressDialog dialog = new ProgressDialog(this);
+            /*ProgressDialog dialog = new ProgressDialog(this);
             dialog.setTitle("Deleting");
             dialog.show();
             flagdelete = true;
@@ -135,7 +137,24 @@ public class QuanLyMonActivity extends AppCompatActivity {
                 dialog.dismiss();
                 dialog.setMessage("Added Successfully");
                 startActivity(intent);
-            }
+            }*/
+            Query query = database.child("MonAn").orderByChild("tenMon").equalTo(name_res.getText().toString());
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot singleSnapshot : snapshot.getChildren())
+                    {
+                        Mon_An mon_an= singleSnapshot.getValue(Mon_An.class);
+                        database.child("MonAn").child(singleSnapshot.getKey()).removeValue();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });//Sua lai ban cho phu hop
+
         });
 
         update_btn.setOnClickListener(v -> {

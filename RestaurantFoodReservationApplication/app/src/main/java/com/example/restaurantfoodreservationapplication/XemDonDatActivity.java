@@ -75,7 +75,6 @@ public class XemDonDatActivity extends AppCompatActivity {
                                         for(DataSnapshot ds : snapshot.getChildren()) {
                                             Chi_Tiet_Don_Dat don = ds.getValue(Chi_Tiet_Don_Dat.class);
 
-
                                             // Chi_Tiet_Don_Dat don = snapshot.getChildren().iterator().next().getValue(Chi_Tiet_Don_Dat.class);
                                             // Chi_Tiet_Don_Dat don = snapshot.getValue(Chi_Tiet_Don_Dat.class);
                                             // Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
