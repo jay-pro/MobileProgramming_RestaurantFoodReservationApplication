@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -37,7 +38,7 @@ public class ThongKeActivity extends AppCompatActivity {
     Spinner spinnerLoaiThongKe;
     EditText edtDate;
     TextView TongTien;
-    Button btnLoc;
+    Button btnLoc, btnTroVe;
     RecyclerView recycler;
     RecyclerDonThanhToanTrongNgay recyclerAdapter;
 
@@ -52,10 +53,18 @@ public class ThongKeActivity extends AppCompatActivity {
         edtDate = (EditText) findViewById(R.id.editNgay);
         TongTien = (TextView) findViewById(R.id.txtTongTienNgay);
         btnLoc = (Button) findViewById(R.id.btnLoc);
+        btnTroVe = (Button) findViewById(R.id.btnThoat);
         edtDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ChonNgay();
+            }
+        });
+        btnTroVe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ThongKeActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

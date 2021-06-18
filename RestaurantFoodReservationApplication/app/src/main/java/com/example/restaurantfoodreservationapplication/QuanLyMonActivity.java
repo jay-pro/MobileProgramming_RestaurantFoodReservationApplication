@@ -131,14 +131,19 @@ public class QuanLyMonActivity extends AppCompatActivity {
         dialog.show();
         flagadd = true;
         if(flagadd == true){
-            Intent intent = new Intent(QuanLyMonActivity.this, DatMonActivity.class);
+            //Intent intent = new Intent(QuanLyMonActivity.this, DatMonActivity.class);
             DatabaseReference dbr = FirebaseDatabase.getInstance().getReference().child("MonAn");
             Mon_An mon_an = new Mon_An(Double.parseDouble(price_res.getText().toString()),code_res.getText().toString(),name_res.getText().toString(),purl_res.getText().toString());
             dbr.push().setValue(mon_an);
             flagadd=false;
             dialog.dismiss();
             dialog.setMessage("Added Successfully");
-            startActivity(intent);
+            name_res.setText("");
+            code_res.setText("");
+            price_res.setText("");
+            purl_res.setText(""); 
+
+           // startActivity(intent);
         }
     }
 
