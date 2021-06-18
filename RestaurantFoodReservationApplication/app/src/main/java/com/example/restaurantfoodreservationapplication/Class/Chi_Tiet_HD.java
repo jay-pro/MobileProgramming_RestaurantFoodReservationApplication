@@ -2,7 +2,7 @@ package com.example.restaurantfoodreservationapplication.Class;
 
 public class Chi_Tiet_HD {
     String Url;
-   // String MaBan;
+    //String MaBan;
     String TenMon;
     int SoLuong;
     double ThanhTien;
@@ -25,8 +25,8 @@ public class Chi_Tiet_HD {
     public void setUrl(String url) {
         Url = url;
     }
-
-/*    public String getMaBan() {
+/*
+    public String getMaBan() {
         return MaBan;
     }
 

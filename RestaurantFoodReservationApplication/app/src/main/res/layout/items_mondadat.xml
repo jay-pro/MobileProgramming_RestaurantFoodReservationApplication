@@ -9,9 +9,7 @@
         android:id="@+id/img"
         android:layout_width="112dp"
         android:layout_height="145dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="296dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_menu_camera" />
 
@@ -19,20 +17,20 @@
         android:id="@+id/textMaBan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="176dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:text="Tên món:"
         android:textColor="#9615CD"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textTongTien"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="28dp"
+        android:id="@+id/textSoluong"
+        android:layout_width="38dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="36dp"
         android:text="Số lượng"
         app:layout_constraintStart_toEndOf="@+id/img"
         app:layout_constraintTop_toBottomOf="@+id/textMaBan" />
@@ -53,9 +51,9 @@
         android:id="@+id/imgGiamSL"
         android:layout_width="30dp"
         android:layout_height="27dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="88dp"
-        app:layout_constraintStart_toEndOf="@+id/textTongTien"
+        app:layout_constraintStart_toEndOf="@+id/imgTangSL"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tru" />
 

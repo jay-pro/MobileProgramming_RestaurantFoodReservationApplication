@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.restaurantfoodreservationapplication.Class.Chi_Tiet_Don_Dat;
@@ -33,6 +35,7 @@ import static com.example.restaurantfoodreservationapplication.DatMonActivity.Ma
 
 public class ThanhToanActivity extends AppCompatActivity {
     RecyclerView recycler;
+    TextView txtmaBan;
     RecyclerThanhToanAdapter recyclerAdapter;
     ArrayList<Chi_Tiet_HD> dsHoaDon;
     double tong = 0;
@@ -43,6 +46,8 @@ public class ThanhToanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_donthanhtoan);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("ChuaThanhToan");
+        txtmaBan = (TextView) findViewById(R.id.tvMaBan);
+        txtmaBan.setText(MaBan);
         FloatingActionButton fab = findViewById(R.id.fab);
         FloatingActionButton fabXacNhan = findViewById(R.id.fabXacNhan);
 
@@ -83,6 +88,13 @@ public class ThanhToanActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 HienTongTien(MaBan);
+            }
+        });
+        fab.setOnClickListener(new View.OnClickListener() { //nut QUAY LAI
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ThanhToanActivity.this, DatMonActivity.class);
+                startActivity(intent);
             }
         });
 

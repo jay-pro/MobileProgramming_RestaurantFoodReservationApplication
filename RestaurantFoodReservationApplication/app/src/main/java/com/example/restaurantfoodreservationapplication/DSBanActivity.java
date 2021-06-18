@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.restaurantfoodreservationapplication.Class.Ban_An;
@@ -24,6 +25,7 @@ public class DSBanActivity extends AppCompatActivity {
     RecyclerView recycler;
     RecyclerBanAdapter recyclerAdapter;
     ArrayList<Ban_An> dsBan;
+    Button btnQuayLui;
     // ArrayList<Don_Dat_1_Ban> dsMonDatCuaBan;
     DatabaseReference mDatabase;
     @Override
@@ -32,6 +34,7 @@ public class DSBanActivity extends AppCompatActivity {
         //setContentView(R.layout.item_dsban);
         setContentView(R.layout.recyclerview_ban);
         MaBan = "";
+        btnQuayLui = (Button) findViewById(R.id.btnQuayLui);
 
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("BanAn");
@@ -70,6 +73,13 @@ public class DSBanActivity extends AppCompatActivity {
             public void onItemClick(int position) {
                 MaBan = dsBan.get(position).getMaBan();
                 Intent intent = new Intent(DSBanActivity.this, DatMonActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnQuayLui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DSBanActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

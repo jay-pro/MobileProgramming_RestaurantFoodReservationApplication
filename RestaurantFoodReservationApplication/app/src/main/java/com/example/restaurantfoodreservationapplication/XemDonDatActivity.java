@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.example.restaurantfoodreservationapplication.DatMonActivity.MaBan;
-import static com.example.restaurantfoodreservationapplication.RecyclerDonDatAdapter.Xoa;
+
 import static com.example.restaurantfoodreservationapplication.RecyclerDonDatAdapter.soluong;
 
 public class XemDonDatActivity extends AppCompatActivity {
@@ -43,7 +43,7 @@ public class XemDonDatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_xem_don_dat);
-        Xoa=false;
+
         setContentView(R.layout.recycler_chitietdondat);
         imgGiamSL = (ImageView) findViewById(R.id.imgGiamSL);
         imgTangSL = (ImageView) findViewById(R.id.imgTangSL);
@@ -76,12 +76,9 @@ public class XemDonDatActivity extends AppCompatActivity {
                                         //snapshot bang NULL nen phia duoi du lieu bi sai
                                         for(DataSnapshot ds : snapshot.getChildren()) {
                                             Chi_Tiet_Don_Dat don = ds.getValue(Chi_Tiet_Don_Dat.class);
-
-
                                             // Chi_Tiet_Don_Dat don = snapshot.getChildren().iterator().next().getValue(Chi_Tiet_Don_Dat.class);
                                             // Chi_Tiet_Don_Dat don = snapshot.getValue(Chi_Tiet_Don_Dat.class);
                                             // Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(dsMon.get(position).getGiaMon(), MaBan, 1, dsMon.get(position).getTenMon()); //Sua lai ban cho phu hop
-
                                             int soluong = don.getSoLuong() + ctdondat.getSoLuong();
                                             don.setSoLuong(soluong);
                                             // ctdondat.setTenMon(dsMonDat.get(position).getTenMon());
@@ -90,14 +87,17 @@ public class XemDonDatActivity extends AppCompatActivity {
                                             HashMap childUpdates = new HashMap();
                                             childUpdates.put(key, don);
                                             db.child("ChuaThanhToan").child("DonBan"+MaBan).updateChildren(childUpdates);
+                                            dsMonDat.clear();
                                             recyclerAdapter.notifyDataSetChanged();
                                         }
                                     }
                                     else {
                                         Chi_Tiet_Don_Dat don = new Chi_Tiet_Don_Dat(ctdondat.getDonGia(), MaBan, ctdondat.getSoLuong(), ctdondat.getTenMon(), ctdondat.getUrl()); //Sua lai ban cho phu hop
                                         db.child("ChuaThanhToan").child("DonBan"+MaBan).push().setValue(ctdondat);
+                                        dsMonDat.clear();
                                         recyclerAdapter.notifyDataSetChanged();
                                     }
+
                                 }
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError error) {
@@ -107,7 +107,7 @@ public class XemDonDatActivity extends AppCompatActivity {
                             //db.child("ThanhToan").child("DonBan"+MaBan).push().setValue(ctdondat);
                             Toast.makeText(XemDonDatActivity.this, "Da xac nhan mon an thanh cong!", Toast.LENGTH_SHORT).show();
                         }
-                        recyclerAdapter.notifyDataSetChanged();
+
                     }
 
                     @Override
@@ -115,7 +115,9 @@ public class XemDonDatActivity extends AppCompatActivity {
 
                     }
                 });
+                recyclerAdapter.notifyDataSetChanged();
             }
+
         });
 
        /* TenMon =(TextView) findViewById(R.id.txtTenMon);
@@ -187,11 +189,11 @@ public class XemDonDatActivity extends AppCompatActivity {
                 // Query query =  mDatabase.orderByChild("tenMon").equalTo(dsMonDat.get(position).getTenMon());
                 Query query = mDatabase.orderByChild("maBan").equalTo(MaBan);//.orderByChild("tenMon").equalTo(dsMonDat.get(position).getTenMon());
                 // Query query = query1.orderByChild("maBan").equalTo(MaBan);
-                Query query1 = query.getRef().orderByChild("tenMon").equalTo(dsMonDat.get(position).getTenMon());
+              //  Query query1 = query.getRef().orderByChild("tenMon").equalTo(dsMonDat.get(position).getTenMon());
                 Query query2 = mDatabase.child("DonDat"+MaBan).orderByChild("tenMon").equalTo(dsMonDat.get(position).getTenMon());
 
 
-                query2.addValueEventListener(new ValueEventListener() { //LOI TANG GIAM SL --> ANH HUONG TOI MON KHAC TRONG CUNG MA BAN
+                query2.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot singleSnapshot : snapshot.getChildren()) {
@@ -199,7 +201,9 @@ public class XemDonDatActivity extends AppCompatActivity {
                             //Chi_Tiet_Don_Dat ctdondat = snapshot.getValue(Chi_Tiet_Don_Dat.class);
                             Chi_Tiet_Don_Dat ctdondat = singleSnapshot.getValue(Chi_Tiet_Don_Dat.class);//new Chi_Tiet_Don_Dat(dsMonDat.get(position).getDonGia(), MaBan dsMonDat, soluong, dsMonDat.get(position).getTenMon());
 
-                            ctdondat.setSoLuong(soluong);
+                            if(soluong<=0) Toast.makeText(XemDonDatActivity.this, "So luong khong the be hon 0", Toast.LENGTH_SHORT).show();
+                            else{
+                            ctdondat.setSoLuong(soluong);}
                             // ctdondat.setTenMon(dsMonDat.get(position).getTenMon());
                             //ctdondat.setSoLuong(soluong);
                             String key = singleSnapshot.getKey();
@@ -207,16 +211,13 @@ public class XemDonDatActivity extends AppCompatActivity {
                             childUpdates.put(key, ctdondat);
 
                             mDatabase.child("DonDat"+MaBan).updateChildren(childUpdates);
+                            recyclerAdapter.notifyDataSetChanged();
                             //Don_Dat_1_Ban dondat = singleSnapshot.getValue(Don_Dat_1_Ban.class);
                             // dsMonDat.add(ctdondat);
-                            if(Xoa = true)
-                            {
-                                mDatabase.child("DonDat"+MaBan).child(singleSnapshot.getKey()).removeValue();
-                                Xoa=false;
-                            }
+
 
                         }
-                        recyclerAdapter.notifyDataSetChanged();
+                        //recyclerAdapter.notifyDataSetChanged();
                     }
 
                     @Override
@@ -224,6 +225,7 @@ public class XemDonDatActivity extends AppCompatActivity {
 
                     }
                 });
+                recyclerAdapter.notifyDataSetChanged();
                 // HashMap childUpdates  = new HashMap();
                 // childUpdates.put(, soluong);
                 // mDatabase.child(position).updateChildren(childUpdates);
