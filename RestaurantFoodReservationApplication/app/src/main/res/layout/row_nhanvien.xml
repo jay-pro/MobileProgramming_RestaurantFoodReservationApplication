@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/txtMaNhanVien"
         android:textSize="24sp"
-        android:textColor="#187FAE"
+        android:textColor="#0A2CE8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -34,7 +34,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:text="Tên NV"
-        android:textColor="#187FAE"
+        android:textColor="#0A2CE8"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewNhanVien"
         app:layout_constraintTop_toBottomOf="@+id/txtMaNhanVien" />

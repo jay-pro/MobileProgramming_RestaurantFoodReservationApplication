@@ -8,13 +8,25 @@
     android:orientation="vertical"
     tools:context=".QLNhanVienActivity">
 
-    <Button
-        android:id="@+id/btnThemNhanVien"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_marginTop="16dp"
-        android:text="Them Nhan vien" />
+        android:layout_height="wrap_content">
+        <Button
+            android:text="Trở về"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:id="@+id/btnBackQLNV"/>
+        <Button
+            android:id="@+id/btnThemNhanVien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="16dp"
+            android:text="Them Nhan vien" />
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_viewNhanVien"

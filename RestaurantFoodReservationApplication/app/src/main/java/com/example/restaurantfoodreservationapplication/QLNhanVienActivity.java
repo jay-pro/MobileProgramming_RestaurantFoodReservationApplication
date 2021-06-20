@@ -31,7 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class QLNhanVienActivity extends AppCompatActivity{
-    Button btnThem;
+    Button btnThem,btnTroVe;
     ArrayList<Nhan_Vien> arrayListNV = new ArrayList<>();
     NhanVienAdapter nhanvienAdapter;
     RecyclerView recyclerViewNV;
@@ -41,16 +41,17 @@ public class QLNhanVienActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_q_l_nhan_vien);
         btnThem = (Button) findViewById(R.id.btnThemNhanVien);
+        btnTroVe = (Button) findViewById(R.id.btnBackQLNV);
         nhanvienAdapter = new NhanVienAdapter(arrayListNV,getApplicationContext());
         recyclerViewNV= (RecyclerView) findViewById(R.id.recycler_viewNhanVien);
         mDatabase = FirebaseDatabase.getInstance().getReference();
-//        btnThem.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                arrayListNV.add(new Nhan_Vien(R.drawable.kiwi,"Tien vua them"));
-////                shopAdapter.notifyDataSetChanged();
-//            }
-//        });
+
+        btnTroVe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         getListNhanVienFromFirebase();
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,14 +88,41 @@ public class QLNhanVienActivity extends AppCompatActivity{
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
+                Nhan_Vien nv_update = snapshot.getValue(Nhan_Vien.class);
+
+                for(Nhan_Vien nv : arrayListNV){
+                    if(nv.getID().equals(nv_update.getID()))
+                    {
+                        nv.setChucVu(nv_update.getChucVu());
+                        nv.setHoTen(nv_update.getHoTen());
+                        nv.setGioiTinh(nv_update.getGioiTinh());
+                        nv.setCMND(nv_update.getCMND());
+                        nv.setSDT(nv_update.getSDT());
+                        nv.setDiaChi(nv_update.getDiaChi());
+                        nv.setLuong(nv_update.getLuong());
+                        nv.setHinhAnh(nv_update.getHinhAnh());
+
+                        nhanvienAdapter.notifyDataSetChanged();
+                        return;
+                    }
+                }
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                if (NhanVienAdapter.DongVuaBiXoa != -1 ) {
-                    arrayListNV.remove(NhanVienAdapter.DongVuaBiXoa);
-                    nhanvienAdapter.notifyDataSetChanged();
-                    NhanVienAdapter.DongVuaBiXoa = -1;
+//                if (NhanVienAdapter.DongVuaBiXoa != -1 ) {
+//                    arrayListNV.remove(NhanVienAdapter.DongVuaBiXoa);
+//                    nhanvienAdapter.notifyDataSetChanged();
+//                    NhanVienAdapter.DongVuaBiXoa = -1;
+//                }
+                Nhan_Vien nv_removed = snapshot.getValue(Nhan_Vien.class);
+                for(Nhan_Vien nv : arrayListNV){
+                    if(nv.getID().equals(nv_removed.getID()))
+                    {
+                        arrayListNV.remove(nv);
+                        nhanvienAdapter.notifyDataSetChanged();
+                        return;
+                    }
                 }
             }
 
@@ -109,9 +137,7 @@ public class QLNhanVienActivity extends AppCompatActivity{
             }
         });
     }
-    private void DialogXacNhanXoa(){
 
-    }
     public void initView()
     {
 

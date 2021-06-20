@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -28,10 +29,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.stream.Collector;
 
 public class QLBanAnActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
-    Button btnThem;
+    Button btnThem,btnTroVe;
     ArrayList<Ban_An> arrayListBanAn = new ArrayList<>();
     BanAnAdapter banAnAdapter;
     RecyclerView recyclerView;
@@ -40,6 +42,7 @@ public class QLBanAnActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_q_l_ban_an);
         btnThem = (Button) findViewById(R.id.btnThemBanAn);
+        btnTroVe = (Button) findViewById(R.id.btnBackQLBan);
         banAnAdapter = new BanAnAdapter(arrayListBanAn,getApplicationContext());
         recyclerView= (RecyclerView) findViewById(R.id.recycler_viewBanAN);
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -51,6 +54,14 @@ public class QLBanAnActivity extends AppCompatActivity {
                 DialogAdd();
             }
         });
+        btnTroVe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
     }
     private  void getListBanFromFirebase()
     {
@@ -60,19 +71,39 @@ public class QLBanAnActivity extends AppCompatActivity {
                 Ban_An ban_an = snapshot.getValue(Ban_An.class);
                 arrayListBanAn.add(ban_an);
                 banAnAdapter.notifyDataSetChanged();
+
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Ban_An ban_update = snapshot.getValue(Ban_An.class);
 
+                for(Ban_An b : arrayListBanAn){
+                    if(b.getMaBan().equals(ban_update.getMaBan()))
+                    {
+                        b.setTenBan(ban_update.getTenBan());
+                        b.setSoCho(ban_update.getSoCho());
+                        banAnAdapter.notifyDataSetChanged();
+                        return;
+                    }
+                }
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                if (BanAnAdapter.DongVuaBiXoa != -1 ) {
-                    arrayListBanAn.remove(BanAnAdapter.DongVuaBiXoa);
-                    banAnAdapter.notifyDataSetChanged();
-                    BanAnAdapter.DongVuaBiXoa = -1;
+//                if (BanAnAdapter.DongVuaBiXoa != -1 ) {
+//                    arrayListBanAn.remove(BanAnAdapter.DongVuaBiXoa);
+//                    banAnAdapter.notifyDataSetChanged();
+//                    BanAnAdapter.DongVuaBiXoa = -1;
+//                }
+                Ban_An ban_removed = snapshot.getValue(Ban_An.class);
+                for(Ban_An b : arrayListBanAn){
+                    if(b.getMaBan().equals(ban_removed.getMaBan()))
+                    {
+                        arrayListBanAn.remove(b);
+                        banAnAdapter.notifyDataSetChanged();
+                        return;
+                    }
                 }
             }
 
