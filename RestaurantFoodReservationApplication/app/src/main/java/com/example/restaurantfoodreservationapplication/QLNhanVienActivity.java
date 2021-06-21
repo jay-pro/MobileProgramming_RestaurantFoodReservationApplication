@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -26,6 +28,11 @@ import com.bumptech.glide.load.model.ByteArrayLoader;
 import com.example.restaurantfoodreservationapplication.Class.Ban_An;
 import com.example.restaurantfoodreservationapplication.Class.Chuc_Vu;
 import com.example.restaurantfoodreservationapplication.Class.Nhan_Vien;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,6 +50,7 @@ public class QLNhanVienActivity extends AppCompatActivity{
     public static ArrayList<String> arrayListChucVu = new ArrayList<>();
     public static ArrayAdapter arrayAdapterChucVu;
     private DatabaseReference mDatabase;
+    FirebaseAuth mAuthentication;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +60,7 @@ public class QLNhanVienActivity extends AppCompatActivity{
         nhanvienAdapter = new NhanVienAdapter(arrayListNV,getApplicationContext());
         recyclerViewNV= (RecyclerView) findViewById(R.id.recycler_viewNhanVien);
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuthentication = FirebaseAuth.getInstance();
 
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -234,6 +243,8 @@ public class QLNhanVienActivity extends AppCompatActivity{
         EditText edtSDT = (EditText) dialog.findViewById(R.id.edtSDT);
         EditText edtDiaChi = (EditText) dialog.findViewById(R.id.edtDiaChi);
         EditText edtLuong = (EditText) dialog.findViewById(R.id.edtLuong);
+        EditText edtEmail = (EditText) dialog.findViewById(R.id.editTextEmailNV);
+        EditText edtPassword = (EditText) dialog.findViewById(R.id.editTextPasswordNV);
         Button btnDongY = (Button) dialog.findViewById(R.id.buttonDongYThemNV);
         Button btnHuy = (Button) dialog.findViewById(R.id.buttonHuyThemNV);
         Spinner spinner =  spinner = (Spinner) dialog.findViewById(R.id.spinnerChucVu);
@@ -257,23 +268,15 @@ public class QLNhanVienActivity extends AppCompatActivity{
             public void onClick(View v) {
                 if(edtMaNV.getText().toString().trim().length() == 0 ||
                         edtTenNV.getText().toString().trim().length() == 0|| edtGioiTinh.getText().toString().trim().length() == 0 ||  edtLuong.getText().toString().trim().length() == 0 ||
-                edtCMND.getText().toString().trim().length() == 0 || edtSDT.getText().toString().trim().length() == 0 || edtDiaChi.getText().toString().trim().length() == 0)
+                edtCMND.getText().toString().trim().length() == 0 || edtSDT.getText().toString().trim().length() == 0 || edtDiaChi.getText().toString().trim().length() == 0
+                || edtEmail.getText().toString().trim().length() == 0 || edtPassword.getText().toString().trim().length() == 0)
+
                 {
                     Toast.makeText(QLNhanVienActivity.this, "Vui lòng nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Nhan_Vien nv = new Nhan_Vien(edtMaNV.getText().toString(), TenChucVu,edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,"");
-                mDatabase.child("NhanVien").push().setValue(nv, new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                        if(error == null)
-                        {
-                            Toast.makeText(QLNhanVienActivity.this, "Lưu Thành Công", Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                            Toast.makeText(QLNhanVienActivity.this, "Lưu Thất Bại!", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                DangKyTaiKhoan(dialog,edtEmail.getText().toString(),edtPassword.getText().toString(),edtMaNV.getText().toString(), TenChucVu,edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,"");
+
 
             }
         });
@@ -286,9 +289,52 @@ public class QLNhanVienActivity extends AppCompatActivity{
                 dialog.cancel();
             }
         });
+
         dialog.show();
 //            dialog.getWindow().setAttributes(lp);
+
+
     }
+    private void DangKyTaiKhoan(Dialog dialog,String email,String password,String manv,String tenChucVu, String tennv,String gioitinh,String cmnd, String sdt, String diachi, double luong,String hinhanh)
+    {
+        // Validations for input email ad password:
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(getApplicationContext(), "Please enter new employee's email.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(getApplicationContext(), "Please enter new employee's password.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        // create new employee's account:
+        mAuthentication.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Registration Succeeded.", Toast.LENGTH_LONG).show();
+                    //if the employee's account created intent to login activity
+                    Nhan_Vien nv = new Nhan_Vien(manv, tenChucVu,tennv,gioitinh,cmnd, sdt,diachi,luong ,hinhanh);
+                    mDatabase.child("NhanVien").push().setValue(nv, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                            if(error == null)
+                            {
+                                Toast.makeText(QLNhanVienActivity.this, "Lưu Thành Công", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            }
+                            else
+                                Toast.makeText(QLNhanVienActivity.this, "Lưu Thất Bại!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else {
+                    //Registering Failed:
+                    Toast.makeText(getApplicationContext(), "vui lòng kiểm tra định dạng Email, mật khẩu tối thiểu 6 ký tự!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
 
 
 }
