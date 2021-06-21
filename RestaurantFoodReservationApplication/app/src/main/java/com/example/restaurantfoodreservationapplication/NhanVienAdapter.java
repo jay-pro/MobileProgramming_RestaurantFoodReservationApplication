@@ -7,9 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +35,9 @@ import java.util.HashMap;
 public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHolder> {
     ArrayList<Nhan_Vien> dataNhanViens;
     Context context;
+    Spinner spinner;
+    ArrayAdapter arrayAdapterChucVu;
+    String TenChucVu = "";
     public static int DongVuaBiXoa = -1;
     private DatabaseReference mDatabase;
     public NhanVienAdapter(ArrayList<Nhan_Vien> dataNhanViens, Context context) {
@@ -199,6 +205,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
 //            dialog.getWindow().setAttributes(lp);
         }
         private  void  DialogEdit() {
+            int positionTenChucVu = 0;
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.dialog_themnhanvien);
@@ -206,7 +213,6 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
             // ánh xạ
             TextView txtSuaNV = (TextView) dialog.findViewById(R.id.txtThemNhanVien) ;
             EditText edtMaNV = (EditText) dialog.findViewById(R.id.edtMaNV);
-            EditText edtChucVu = (EditText) dialog.findViewById(R.id.edtChucVu);
             EditText edtTenNV = (EditText) dialog.findViewById(R.id.edtHoTen);
             EditText edtGioiTinh = (EditText) dialog.findViewById(R.id.edtGioiTinh);
             EditText edtCMND = (EditText) dialog.findViewById(R.id.edtCMND);
@@ -220,7 +226,6 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
             txtSuaNV.setText("Sửa Nhân viên");
 
             edtMaNV.setText(dataNhanViens.get(getAdapterPosition()).getID().toString());
-            edtChucVu.setText(dataNhanViens.get(getAdapterPosition()).getChucVu().toString());
             edtTenNV.setText(dataNhanViens.get(getAdapterPosition()).getHoTen().toString());
             edtGioiTinh.setText(dataNhanViens.get(getAdapterPosition()).getGioiTinh().toString());
             edtCMND.setText(dataNhanViens.get(getAdapterPosition()).getCMND().toString(),TextView.BufferType.EDITABLE);
@@ -230,11 +235,27 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
 
             btnDongY.setText("Ok");
 
+            TenChucVu = QLNhanVienActivity.arrayListChucVu.get(positionTenChucVu).toString();
+            Spinner spinner =  spinner = (Spinner) dialog.findViewById(R.id.spinnerChucVu);
+            arrayAdapterChucVu = new ArrayAdapter(context, android.R.layout.simple_spinner_item,QLNhanVienActivity.arrayListChucVu);
+            arrayAdapterChucVu.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(arrayAdapterChucVu);
+            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    TenChucVu = QLNhanVienActivity.arrayListChucVu.get(position).toString();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
 
             btnDongY.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(edtMaNV.getText().toString().trim().length() == 0 ||  edtChucVu.getText().toString().trim().length() == 0 ||
+                    if(edtMaNV.getText().toString().trim().length() == 0 ||
                             edtTenNV.getText().toString().trim().length() == 0|| edtGioiTinh.getText().toString().trim().length() == 0 ||
                             edtCMND.getText().toString().trim().length() == 0 || edtSDT.getText().toString().trim().length() == 0 || edtDiaChi.getText().toString().trim().length() == 0 || edtLuong.getText().toString().trim().length() == 0)
                     {
@@ -248,7 +269,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for(DataSnapshot ds : snapshot.getChildren()){
                                 HashMap hashMap = new HashMap();
-                                Nhan_Vien nv = new Nhan_Vien(edtMaNV.getText().toString(), edtChucVu.getText().toString(),edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,dataNhanViens.get(getAdapterPosition()).getHinhAnh().toString());
+                                Nhan_Vien nv = new Nhan_Vien(edtMaNV.getText().toString(),TenChucVu,edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,dataNhanViens.get(getAdapterPosition()).getHinhAnh().toString());
                                 hashMap.put(ds.getKey(), nv);
                                 mDatabase.child("NhanVien").updateChildren(hashMap);
                                 Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();

@@ -14,13 +14,17 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.load.model.ByteArrayLoader;
 import com.example.restaurantfoodreservationapplication.Class.Ban_An;
+import com.example.restaurantfoodreservationapplication.Class.Chuc_Vu;
 import com.example.restaurantfoodreservationapplication.Class.Nhan_Vien;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -35,6 +39,9 @@ public class QLNhanVienActivity extends AppCompatActivity{
     ArrayList<Nhan_Vien> arrayListNV = new ArrayList<>();
     NhanVienAdapter nhanvienAdapter;
     RecyclerView recyclerViewNV;
+    String TenChucVu = "";
+    public static ArrayList<String> arrayListChucVu = new ArrayList<>();
+    public static ArrayAdapter arrayAdapterChucVu;
     private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,7 @@ public class QLNhanVienActivity extends AppCompatActivity{
                 finish();
             }
         });
+        getListChucVuFromFirebase();
         getListNhanVienFromFirebase();
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +68,7 @@ public class QLNhanVienActivity extends AppCompatActivity{
                DialogAdd();
             }
         });
+
         initView();
 
 
@@ -73,6 +82,52 @@ public class QLNhanVienActivity extends AppCompatActivity{
 //        mDatabase.child("NhanVien").push().setValue(nv2);
 //        mDatabase.child("NhanVien").push().setValue(nv3);
 //        mDatabase.child("NhanVien").push().setValue(nv4);
+    }
+    private void getListChucVuFromFirebase()
+    {
+        mDatabase.child("ChucVu").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Chuc_Vu cv = snapshot.getValue(Chuc_Vu.class);
+                arrayListChucVu.add(cv.TenCV.toString());
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Chuc_Vu cv_update = snapshot.getValue(Chuc_Vu.class);
+
+                for(String cv : arrayListChucVu){
+                    if(cv.equals(cv_update.TenCV))
+                    {
+                        cv = cv_update.TenCV;
+                        return;
+                    }
+                }
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                Chuc_Vu cv_removed = snapshot.getValue(Chuc_Vu.class);
+                for(String cv : arrayListChucVu){
+                    if(cv.equals(cv_removed.TenCV))
+                    {
+                        arrayListNV.remove(cv);
+                        return;
+                    }
+                }
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
     private  void getListNhanVienFromFirebase()
     {
@@ -136,6 +191,8 @@ public class QLNhanVienActivity extends AppCompatActivity{
 
             }
         });
+
+
     }
 
     public void initView()
@@ -162,13 +219,15 @@ public class QLNhanVienActivity extends AppCompatActivity{
 
     }
     private  void  DialogAdd() {
+        int positionChucVu = 0;
+
         Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_themnhanvien);
         dialog.setCanceledOnTouchOutside(false); // nhap ra ngoai khong tat dialog
         // ánh xạ
         EditText edtMaNV = (EditText) dialog.findViewById(R.id.edtMaNV);
-        EditText edtChucVu = (EditText) dialog.findViewById(R.id.edtChucVu);
+        TenChucVu = arrayListChucVu.get(positionChucVu).toString();
         EditText edtTenNV = (EditText) dialog.findViewById(R.id.edtHoTen);
         EditText edtGioiTinh = (EditText) dialog.findViewById(R.id.edtGioiTinh);
         EditText edtCMND = (EditText) dialog.findViewById(R.id.edtCMND);
@@ -177,18 +236,33 @@ public class QLNhanVienActivity extends AppCompatActivity{
         EditText edtLuong = (EditText) dialog.findViewById(R.id.edtLuong);
         Button btnDongY = (Button) dialog.findViewById(R.id.buttonDongYThemNV);
         Button btnHuy = (Button) dialog.findViewById(R.id.buttonHuyThemNV);
+        Spinner spinner =  spinner = (Spinner) dialog.findViewById(R.id.spinnerChucVu);
+        arrayAdapterChucVu = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,arrayListChucVu);
+        arrayAdapterChucVu.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapterChucVu);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                TenChucVu = arrayListChucVu.get(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         btnDongY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(edtMaNV.getText().toString().trim().length() == 0 ||  edtChucVu.getText().toString().trim().length() == 0 ||
-                        edtTenNV.getText().toString().trim().length() == 0|| edtGioiTinh.getText().toString().trim().length() == 0 ||
-                edtCMND.getText().toString().trim().length() == 0 || edtSDT.getText().toString().trim().length() == 0 || edtDiaChi.getText().toString().trim().length() == 0 || edtLuong.getText().toString().trim().length() == 0)
+                if(edtMaNV.getText().toString().trim().length() == 0 ||
+                        edtTenNV.getText().toString().trim().length() == 0|| edtGioiTinh.getText().toString().trim().length() == 0 ||  edtLuong.getText().toString().trim().length() == 0 ||
+                edtCMND.getText().toString().trim().length() == 0 || edtSDT.getText().toString().trim().length() == 0 || edtDiaChi.getText().toString().trim().length() == 0)
                 {
                     Toast.makeText(QLNhanVienActivity.this, "Vui lòng nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Nhan_Vien nv = new Nhan_Vien(edtMaNV.getText().toString(), edtChucVu.getText().toString(),edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,"");
+                Nhan_Vien nv = new Nhan_Vien(edtMaNV.getText().toString(), TenChucVu,edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,"");
                 mDatabase.child("NhanVien").push().setValue(nv, new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {

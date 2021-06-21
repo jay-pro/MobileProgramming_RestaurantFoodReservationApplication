@@ -35,14 +35,23 @@
             android:textColor="#187FAE"
             android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/edtChucVu"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Chức vụ"
-            android:textColor="#187FAE"
-            android:textSize="24sp" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="#187FAE"
+                android:textSize="24sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chức vụ:"/>
+            <Spinner
+                android:id="@+id/spinnerChucVu"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        
 
         <EditText
             android:id="@+id/edtHoTen"
@@ -128,7 +137,6 @@
 
                 android:text="Hủy" />
         </LinearLayout>
-
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
