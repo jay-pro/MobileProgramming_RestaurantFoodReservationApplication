@@ -269,7 +269,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for(DataSnapshot ds : snapshot.getChildren()){
                                 HashMap hashMap = new HashMap();
-                                Nhan_Vien nv = new Nhan_Vien(edtMaNV.getText().toString(),TenChucVu,edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,dataNhanViens.get(getAdapterPosition()).getHinhAnh().toString());
+                                Nhan_Vien nv = new Nhan_Vien(edtMaNV.getText().toString(),TenChucVu,edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,dataNhanViens.get(getAdapterPosition()).getHinhAnh().toString(),"","");
                                 hashMap.put(ds.getKey(), nv);
                                 mDatabase.child("NhanVien").updateChildren(hashMap);
                                 Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();

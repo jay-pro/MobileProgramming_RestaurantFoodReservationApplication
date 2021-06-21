@@ -10,7 +10,8 @@ public class Nhan_Vien {
     private String DiaChi;
     private double Luong;
     private String HinhAnh;
-
+    private String gmail;
+    private String password;
     public String getID() {
         return ID;
     }
@@ -83,7 +84,7 @@ public class Nhan_Vien {
         HinhAnh = hinhAnh;
     }
 
-    public Nhan_Vien(String ID, String chucVu, String hoTen, String gioiTinh, String CMND, String SDT, String diaChi, double luong, String hinhAnh) {
+    public Nhan_Vien(String ID, String chucVu, String hoTen, String gioiTinh, String CMND, String SDT, String diaChi, double luong, String hinhAnh, String gmail, String password) {
         this.ID = ID;
         ChucVu = chucVu;
         HoTen = hoTen;
@@ -93,6 +94,24 @@ public class Nhan_Vien {
         DiaChi = diaChi;
         Luong = luong;
         HinhAnh = hinhAnh;
+        this.gmail = gmail;
+        this.password = password;
+    }
+
+    public String getGmail() {
+        return gmail;
+    }
+
+    public void setGmail(String gmail) {
+        this.gmail = gmail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Nhan_Vien() {

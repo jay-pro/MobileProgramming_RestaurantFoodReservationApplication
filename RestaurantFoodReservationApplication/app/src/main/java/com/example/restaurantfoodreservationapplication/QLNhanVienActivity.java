@@ -313,7 +313,7 @@ public class QLNhanVienActivity extends AppCompatActivity{
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Registration Succeeded.", Toast.LENGTH_LONG).show();
                     //if the employee's account created intent to login activity
-                    Nhan_Vien nv = new Nhan_Vien(manv, tenChucVu,tennv,gioitinh,cmnd, sdt,diachi,luong ,hinhanh);
+                    Nhan_Vien nv = new Nhan_Vien(manv, tenChucVu,tennv,gioitinh,cmnd, sdt,diachi,luong ,hinhanh,email,password);
                     mDatabase.child("NhanVien").push().setValue(nv, new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
