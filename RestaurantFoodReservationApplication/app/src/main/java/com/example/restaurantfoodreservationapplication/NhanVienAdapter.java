@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -97,7 +98,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
             btnxoa.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "Ong oi", Toast.LENGTH_SHORT).show();
+
                     ShowdialogXacNhan();
 
                 }
@@ -136,8 +137,17 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
                             for (DataSnapshot singleSnapshot : snapshot.getChildren())
                             {
 
-                                mDatabase.child("NhanVien").child(singleSnapshot.getKey()).removeValue();
-                                DongVuaBiXoa = getAdapterPosition();
+                                mDatabase.child("NhanVien").child(singleSnapshot.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if(error == null)
+                                            Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
+                                        else
+                                            Toast.makeText(context, "Xóa bị lỗi!!!", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+//                                DongVuaBiXoa = getAdapterPosition();
+                                
                             }
                         }
 
@@ -271,7 +281,18 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
                                 HashMap hashMap = new HashMap();
                                 Nhan_Vien nv = new Nhan_Vien(edtMaNV.getText().toString(),TenChucVu,edtTenNV.getText().toString(),edtGioiTinh.getText().toString(),edtCMND.getText().toString(), edtSDT.getText().toString(),edtDiaChi.getText().toString(),Double.parseDouble(edtLuong.getText().toString()) ,dataNhanViens.get(getAdapterPosition()).getHinhAnh().toString(),"","");
                                 hashMap.put(ds.getKey(), nv);
-                                mDatabase.child("NhanVien").updateChildren(hashMap);
+                                mDatabase.child("NhanVien").updateChildren(hashMap, new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if(error == null)
+                                        {
+                                            Toast.makeText(context, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                            dialog.dismiss();
+                                        }
+                                        else
+                                            Toast.makeText(context, "Cập nhật lỗi!!!", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                                 Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
                                 dialog.cancel();
                             }

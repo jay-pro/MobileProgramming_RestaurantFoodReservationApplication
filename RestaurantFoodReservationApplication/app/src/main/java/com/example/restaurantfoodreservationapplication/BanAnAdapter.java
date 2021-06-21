@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -132,8 +133,19 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder> 
                                 HashMap hashMap = new HashMap();
                                 Ban_An ban_an = new Ban_An(edtMaBan.getText().toString(), edtTenBan.getText().toString(), Integer.parseInt(edtSoCho.getText().toString()));
                                 hashMap.put(ds.getKey(), ban_an);
-                                mDatabase.child("BanAn").updateChildren(hashMap);
-                                Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
+                                mDatabase.child("BanAn").updateChildren(hashMap, new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if(error == null)
+                                        {
+                                            Toast.makeText(context, "Cập nhật thành Công", Toast.LENGTH_SHORT).show();
+                                            dialog.dismiss();
+                                        }
+                                        else
+                                            Toast.makeText(context, "Cập nhật thất Bại!", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
                                 dialog.cancel();
                             }
                         }
@@ -172,7 +184,18 @@ public class BanAnAdapter extends RecyclerView.Adapter<BanAnAdapter.ViewHolder> 
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for (DataSnapshot singleSnapshot : snapshot.getChildren()) {
 
-                                mDatabase.child("BanAn").child(singleSnapshot.getKey()).removeValue();
+                                mDatabase.child("BanAn").child(singleSnapshot.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        if(error == null)
+                                        {
+                                            Toast.makeText(context, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
+                                        }
+                                        else
+                                            Toast.makeText(context, "Xóa Thất Bại!!!", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                });
                                 DongVuaBiXoa = getAdapterPosition();
                             }
                         }
