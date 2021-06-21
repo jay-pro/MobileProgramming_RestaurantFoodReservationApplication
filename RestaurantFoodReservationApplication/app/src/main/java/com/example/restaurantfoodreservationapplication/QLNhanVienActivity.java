@@ -227,6 +227,15 @@ public class QLNhanVienActivity extends AppCompatActivity{
 
 
     }
+    private boolean checktrungmanv(String manv)
+    {
+        for(Nhan_Vien nv : arrayListNV)
+        {
+            if(nv.getID().contentEquals(manv))
+                return false;
+        }
+        return true;
+    }
     private  void  DialogAdd() {
         int positionChucVu = 0;
 
@@ -297,15 +306,13 @@ public class QLNhanVienActivity extends AppCompatActivity{
     }
     private void DangKyTaiKhoan(Dialog dialog,String email,String password,String manv,String tenChucVu, String tennv,String gioitinh,String cmnd, String sdt, String diachi, double luong,String hinhanh)
     {
-        // Validations for input email ad password:
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(getApplicationContext(), "Please enter new employee's email.", Toast.LENGTH_LONG).show();
+
+        if(checktrungmanv(manv) == false)
+        {
+            Toast.makeText(QLNhanVienActivity.this, "Mã nhân viên trùng, vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(TextUtils.isEmpty(password)){
-            Toast.makeText(getApplicationContext(), "Please enter new employee's password.", Toast.LENGTH_LONG).show();
-            return;
-        }
+
         // create new employee's account:
         mAuthentication.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override

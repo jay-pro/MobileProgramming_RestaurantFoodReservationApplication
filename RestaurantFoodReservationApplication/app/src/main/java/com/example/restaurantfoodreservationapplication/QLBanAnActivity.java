@@ -27,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 import java.util.stream.Collector;
@@ -140,6 +141,15 @@ public class QLBanAnActivity extends AppCompatActivity {
 
     }
 
+    private boolean checktrungmaban(String maban)
+    {
+        for(Ban_An ba : arrayListBanAn)
+        {
+            if(ba.getMaBan().contentEquals(maban))
+                return false;
+        }
+        return true;
+    }
     private  void  DialogAdd() {
         Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -159,6 +169,14 @@ public class QLBanAnActivity extends AppCompatActivity {
                     Toast.makeText(QLBanAnActivity.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                if(checktrungmaban(edtMaBan.getText().toString().trim()) == false)
+                {
+                    Toast.makeText(QLBanAnActivity.this, "Mã bàn trùng, vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
                 Ban_An ban_an = new Ban_An(edtMaBan.getText().toString(), edtTenBan.getText().toString(), Integer.parseInt(edtSoCho.getText().toString()) );
                 mDatabase.child("BanAn").push().setValue(ban_an, new DatabaseReference.CompletionListener() {
                     @Override
